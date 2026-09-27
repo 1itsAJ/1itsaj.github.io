@@ -424,9 +424,9 @@ $galleryItems = getGalleryItems();
                         </a>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="/printmaking/all-eras#portfolio" data-main="Printmaking" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Printmaking</a>
-                                <a href="/painting/all-eras#portfolio" data-main="painting" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Painting</a>
-                                <a href="/on-paper/all-eras#portfolio" data-main="on-paper" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">On Paper</a>
+                                <a href="index.html#printmaking/all-eras" data-main="Printmaking" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Printmaking</a>
+                                <a href="index.html#painting/all-eras" data-main="painting" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Painting</a>
+                                <a href="index.html#on-paper/all-eras" data-main="on-paper" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">On Paper</a>
                             </div>
                         </div>
                     </div>
@@ -438,8 +438,8 @@ $galleryItems = getGalleryItems();
                         </a>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="/art-book/all-eras#portfolio" data-main="art-book" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Art Book</a>
-                                <a href="/portfolio/all-eras#portfolio" data-main="portfolio" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Portfolio</a>
+                                <a href="index.html#art-book/all-eras" data-main="art-book" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Art Book</a>
+                                <a href="index.html#portfolio/all-eras" data-main="portfolio" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Portfolio</a>
                             </div>
                         </div>
                     </div>
@@ -704,7 +704,8 @@ $galleryItems = getGalleryItems();
                 const cleanSub = activeSubFilter.toLowerCase().replace(/\s+/g, '-');
                 const newPath = `/${cleanMain}/${cleanSub}`;
                 
-                if (window.location.pathname !== newPath) {
+                // Instantly erase "index.html#" from the address bar to make it beautiful
+                if (window.location.pathname !== newPath || window.location.hash !== '') {
                     window.history.replaceState(null, null, newPath);
                 }
             }
@@ -739,7 +740,7 @@ $galleryItems = getGalleryItems();
 
                 void grid.offsetHeight;
                 grid.style.display = '';
-                syncCleanUrl();
+                syncCleanUrl(); // Runs the URL cleanup
             }
 
             function renderSubFilters(mainCategory) {
@@ -808,9 +809,18 @@ $galleryItems = getGalleryItems();
                 });
             });
 
-            // LOAD FILTER STATE FROM CLEAN URL PATH (e.g. /painting/2020s)
-            const pathSegments = window.location.pathname.split('/').filter(Boolean);
-            if (pathSegments.length > 0) {
+            // LOAD FILTER STATE INTELIGENTLY (Reads Hash first, then Pathname)
+            const rawHash = window.location.hash.replace('#', '');
+            let pathSegments = window.location.pathname.split('/').filter(Boolean);
+            let didLoadFromHash = false;
+
+            // If incoming link has a hash (like from CV or Press pages)
+            if (rawHash && rawHash !== 'home' && rawHash !== 'portfolio') {
+                pathSegments = rawHash.split('/');
+                didLoadFromHash = true;
+            }
+
+            if (pathSegments.length > 0 && pathSegments[0] !== 'index.html' && pathSegments[0] !== 'index.php') {
                 const targetMain = Array.from(filterButtons).find(b => b.getAttribute('data-filter').toLowerCase().replace(/\s+/g, '-') === pathSegments[0]);
                 if (targetMain) {
                     activeMainFilter = targetMain.getAttribute('data-filter');
@@ -830,6 +840,15 @@ $galleryItems = getGalleryItems();
                     btn.classList.add('bg-[#E5DFD3]', 'text-black', 'border-[#A8A296]');
                 }
             });
+            renderSubFilters(activeMainFilter);
+            updateGallery();
+
+            // Automatically scroll down to gallery if they clicked a link from another page!
+            if (didLoadFromHash || rawHash === 'portfolio') {
+                setTimeout(() => {
+                    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
             renderSubFilters(activeMainFilter);
             updateGallery();
 
