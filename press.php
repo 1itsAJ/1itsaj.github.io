@@ -239,7 +239,7 @@ $galleryItems = getPressItems();
 </head>
 <body class="bg-[#D8D5CD] text-gray-900 antialiased font-sans">
 
-    <nav class="fixed w-full top-0 z-50 bg-[#D8D5CD]/80 backdrop-blur-md border-b border-[#A8A296]">
+    <nav class="fixed w-full top-0 z-50 bg-[#D1C9BB]/80 backdrop-blur-md border-b border-[#A8A296]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
