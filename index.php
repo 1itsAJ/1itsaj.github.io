@@ -411,10 +411,10 @@ $galleryItems = getGalleryItems();
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.php" class="text-2xl font-serif font-semibold tracking-wide">Hayan Art</a>
+                    <a href="index.html" class="text-2xl font-serif font-semibold tracking-wide">Hayan Art</a>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.php#home" class="text-black hover:opacity-70 transition-opacity font-medium">Home</a>
+                    <a href="index.html#home" class="text-black hover:opacity-70 transition-opacity font-medium">Home</a>
                     
                     <div class="relative group">
                         <button class="text-black hover:opacity-70 transition-opacity font-medium flex items-center gap-1 focus:outline-none">
@@ -423,9 +423,9 @@ $galleryItems = getGalleryItems();
                         </button>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="index.php#portfolio" onclick="document.querySelector('[data-filter=\'Printmaking\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Printmaking</a>
-                                <a href="index.php#portfolio" onclick="document.querySelector('[data-filter=\'painting\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Painting</a>
-                                <a href="index.php#portfolio" onclick="document.querySelector('[data-filter=\'on-paper\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">On Paper</a>
+                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'Printmaking\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Printmaking</a>
+                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'painting\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Painting</a>
+                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'on-paper\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">On Paper</a>
                             </div>
                         </div>
                     </div>
@@ -437,14 +437,14 @@ $galleryItems = getGalleryItems();
                         </button>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="index.php#portfolio" onclick="document.querySelector('[data-filter=\'art-book\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Art Book</a>
-                                <a href="index.php#portfolio" onclick="document.querySelector('[data-filter=\'portfolio\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Portfolio</a>
+                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'art-book\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Art Book</a>
+                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'portfolio\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Portfolio</a>
                             </div>
                         </div>
                     </div>
                     
-                    <a href="press.php" class="text-black hover:opacity-70 transition-opacity font-medium">Press</a>
-                    <a href="cv.php" class="text-black hover:opacity-70 transition-opacity font-medium">CV</a>
+                    <a href="press.html" class="text-black hover:opacity-70 transition-opacity font-medium">Press</a>
+                    <a href="cv.html" class="text-black hover:opacity-70 transition-opacity font-medium">CV</a>
                 </div>
             </div>
         </div>
@@ -625,8 +625,8 @@ $galleryItems = getGalleryItems();
 
                 <div class="w-full md:w-2/3 flex flex-col sm:flex-row justify-between md:justify-end md:gap-24 font-sans text-[15px] leading-relaxed">
                     <div class="flex flex-col gap-1.5 mb-6 sm:mb-0">
-                        <a href="index.php#home" class="hover:opacity-70 hover:underline transition-all">Home</a>
-                        <a href="cv.php" class="hover:opacity-70 hover:underline transition-all">About</a>
+                        <a href="index.html#home" class="hover:opacity-70 hover:underline transition-all">Home</a>
+                        <a href="cv.html" class="hover:opacity-70 hover:underline transition-all">About</a>
                         <a href="mailto:hello@hayan.art" class="hover:opacity-70 hover:underline transition-all">Contact</a>
                     </div>
                     <div class="flex flex-col gap-1.5 mb-6 sm:mb-0">
@@ -672,7 +672,7 @@ $galleryItems = getGalleryItems();
                 'portfolio': ['All Eras', '1990s', '2000s', '2010s', '2020s']
             };
 
-            // ---- CLEAN URL ROUTER (No hashes, no index.php) ----
+            // ---- CLEAN URL ROUTER (No hashes, no index.html) ----
             function syncCleanUrl() {
                 if (isBookViewActive) return; 
                 const cleanMain = activeMainFilter.toLowerCase().replace(/\s+/g, '-');
