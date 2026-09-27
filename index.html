@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hayan Art | Artist Portfolio</title>
+    <base href="/">
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,44 +46,44 @@
 </head>
 <body class="bg-[#D8D5CD] text-gray-900 antialiased font-sans">
 
-    <nav class="fixed w-full top-0 z-50 bg-[#D8D5CD]/80 backdrop-blur-md border-b border-[#A8A296]">
+    <nav class="fixed w-full top-0 z-50 bg-[#D1C9BB]/80 backdrop-blur-md border-b border-[#A8A296]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="text-2xl font-serif font-semibold tracking-wide">Hayan Art</a>
+                    <a href="/" class="text-2xl font-serif font-semibold tracking-wide">Hayan Art</a>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html#home" class="text-black hover:opacity-70 transition-opacity font-medium">Home</a>
+                    <a href="/#home" class="text-black hover:opacity-70 transition-opacity font-medium">Home</a>
                     
                     <div class="relative group">
-                        <button class="text-black hover:opacity-70 transition-opacity font-medium flex items-center gap-1 focus:outline-none">
+                        <a href="/#portfolio" class="text-black hover:opacity-70 transition-opacity font-medium flex items-center gap-1 focus:outline-none">
                             Artworks
                             <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
+                        </a>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'Printmaking\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Printmaking</a>
-                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'painting\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Painting</a>
-                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'on-paper\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">On Paper</a>
+                                <a href="/printmaking/all-eras#portfolio" data-main="Printmaking" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Printmaking</a>
+                                <a href="/painting/all-eras#portfolio" data-main="painting" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Painting</a>
+                                <a href="/on-paper/all-eras#portfolio" data-main="on-paper" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">On Paper</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="relative group">
-                        <button class="text-black hover:opacity-70 transition-opacity font-medium flex items-center gap-1 focus:outline-none">
+                        <a href="/#portfolio" class="text-black hover:opacity-70 transition-opacity font-medium flex items-center gap-1 focus:outline-none">
                             Collections
                             <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
+                        </a>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'art-book\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Art Book</a>
-                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'portfolio\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Portfolio</a>
+                                <a href="/art-book/all-eras#portfolio" data-main="art-book" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Art Book</a>
+                                <a href="/portfolio/all-eras#portfolio" data-main="portfolio" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Portfolio</a>
                             </div>
                         </div>
                     </div>
                     
-                    <a href="press.html" class="text-black hover:opacity-70 transition-opacity font-medium">Press</a>
-                    <a href="cv.html" class="text-black hover:opacity-70 transition-opacity font-medium">CV</a>
+                    <a href="/press" class="text-black hover:opacity-70 transition-opacity font-medium">Press</a>
+                    <a href="/cv.html" class="text-black hover:opacity-70 transition-opacity font-medium">CV</a>
                 </div>
             </div>
         </div>
@@ -9560,8 +9561,8 @@ Each work is signed on the front and back, stamped, and dated by the artist."
 
                 <div class="w-full md:w-2/3 flex flex-col sm:flex-row justify-between md:justify-end md:gap-24 font-sans text-[15px] leading-relaxed">
                     <div class="flex flex-col gap-1.5 mb-6 sm:mb-0">
-                        <a href="index.html#home" class="hover:opacity-70 hover:underline transition-all">Home</a>
-                        <a href="cv.html" class="hover:opacity-70 hover:underline transition-all">About</a>
+                        <a href="/#home" class="hover:opacity-70 hover:underline transition-all">Home</a>
+                        <a href="/cv.html" class="hover:opacity-70 hover:underline transition-all">About</a>
                         <a href="mailto:hello@hayan.art" class="hover:opacity-70 hover:underline transition-all">Contact</a>
                     </div>
                     <div class="flex flex-col gap-1.5 mb-6 sm:mb-0">
@@ -9585,6 +9586,30 @@ Each work is signed on the front and back, stamped, and dated by the artist."
 
     <<script>
         document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.smart-nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Only intercept if we are currently on the gallery page
+                    if (document.getElementById('gallery-grid')) {
+                        e.preventDefault(); 
+                        
+                        const targetMain = link.getAttribute('data-main');
+                        const targetSub = link.getAttribute('data-sub');
+                        
+                        // Click the hidden main filter button
+                        const mainBtn = document.querySelector(`[data-filter="${targetMain}"]`);
+                        if (mainBtn) mainBtn.click();
+                        
+                        // Wait a tiny fraction of a second for sub-buttons to render, then click the sub filter
+                        setTimeout(() => {
+                            const subBtn = document.querySelector(`[data-subfilter="${targetSub}"]`);
+                            if (subBtn) subBtn.click();
+                            
+                            // Smooth scroll down to the portfolio section!
+                            document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                        }, 50);
+                    }
+                });
+            });
             const filterButtons = document.querySelectorAll('.filter-btn');
             const subFilterContainer = document.getElementById('sub-filter-buttons');
             const galleryItems = document.querySelectorAll('.gallery-item');
@@ -9607,7 +9632,7 @@ Each work is signed on the front and back, stamped, and dated by the artist."
                 'portfolio': ['All Eras', '1990s', '2000s', '2010s', '2020s']
             };
 
-            // ---- CLEAN URL ROUTER (No hashes, no index.html) ----
+            // ---- CLEAN URL ROUTER (No hashes, no index.php) ----
             function syncCleanUrl() {
                 if (isBookViewActive) return; 
                 const cleanMain = activeMainFilter.toLowerCase().replace(/\s+/g, '-');
