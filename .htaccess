@@ -13,4 +13,4 @@ RewriteRule ^cv(/.*)?$ cv.html [QSA,L]
 # 3. Route all gallery paths (like /painting/1980s) to index
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.html [QSA,L]
+RewriteRule ^(/.*)$ index.html [QSA,L]
