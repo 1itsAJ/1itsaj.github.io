@@ -1,4 +1,10 @@
 RewriteEngine On
+
+# Route clean paths to their corresponding php files if they exist
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^press$ press.php [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]

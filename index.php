@@ -411,10 +411,10 @@ $galleryItems = getGalleryItems();
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="text-2xl font-serif font-semibold tracking-wide">Hayan Art</a>
+                    <a href="index.php" class="text-2xl font-serif font-semibold tracking-wide">Hayan Art</a>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html#home" class="text-black hover:opacity-70 transition-opacity font-medium">Home</a>
+                    <a href="index.php#home" class="text-black hover:opacity-70 transition-opacity font-medium">Home</a>
                     
                     <div class="relative group">
                         <button class="text-black hover:opacity-70 transition-opacity font-medium flex items-center gap-1 focus:outline-none">
@@ -423,9 +423,9 @@ $galleryItems = getGalleryItems();
                         </button>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'Printmaking\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Printmaking</a>
-                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'painting\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Painting</a>
-                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'on-paper\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">On Paper</a>
+                                <a href="index.php#portfolio" onclick="document.querySelector('[data-filter=\'Printmaking\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Printmaking</a>
+                                <a href="index.php#portfolio" onclick="document.querySelector('[data-filter=\'painting\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Painting</a>
+                                <a href="index.php#portfolio" onclick="document.querySelector('[data-filter=\'on-paper\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">On Paper</a>
                             </div>
                         </div>
                     </div>
@@ -437,14 +437,14 @@ $galleryItems = getGalleryItems();
                         </button>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'art-book\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Art Book</a>
-                                <a href="index.html#portfolio" onclick="document.querySelector('[data-filter=\'portfolio\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Portfolio</a>
+                                <a href="index.php#portfolio" onclick="document.querySelector('[data-filter=\'art-book\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Art Book</a>
+                                <a href="index.php#portfolio" onclick="document.querySelector('[data-filter=\'portfolio\']').click()" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Portfolio</a>
                             </div>
                         </div>
                     </div>
                     
-                    <a href="press.html" class="text-black hover:opacity-70 transition-opacity font-medium">Press</a>
-                    <a href="cv.html" class="text-black hover:opacity-70 transition-opacity font-medium">CV</a>
+                    <a href="press.php" class="text-black hover:opacity-70 transition-opacity font-medium">Press</a>
+                    <a href="cv.php" class="text-black hover:opacity-70 transition-opacity font-medium">CV</a>
                 </div>
             </div>
         </div>
@@ -625,8 +625,8 @@ $galleryItems = getGalleryItems();
 
                 <div class="w-full md:w-2/3 flex flex-col sm:flex-row justify-between md:justify-end md:gap-24 font-sans text-[15px] leading-relaxed">
                     <div class="flex flex-col gap-1.5 mb-6 sm:mb-0">
-                        <a href="index.html#home" class="hover:opacity-70 hover:underline transition-all">Home</a>
-                        <a href="cv.html" class="hover:opacity-70 hover:underline transition-all">About</a>
+                        <a href="index.php#home" class="hover:opacity-70 hover:underline transition-all">Home</a>
+                        <a href="cv.php" class="hover:opacity-70 hover:underline transition-all">About</a>
                         <a href="mailto:hello@hayan.art" class="hover:opacity-70 hover:underline transition-all">Contact</a>
                     </div>
                     <div class="flex flex-col gap-1.5 mb-6 sm:mb-0">
@@ -648,7 +648,7 @@ $galleryItems = getGalleryItems();
         </div>
     </footer>
 
-    <script>
+    <<script>
         document.addEventListener('DOMContentLoaded', () => {
             const filterButtons = document.querySelectorAll('.filter-btn');
             const subFilterContainer = document.getElementById('sub-filter-buttons');
@@ -672,13 +672,15 @@ $galleryItems = getGalleryItems();
                 'portfolio': ['All Eras', '1990s', '2000s', '2010s', '2020s']
             };
 
-            function syncUrlHash() {
+            // ---- CLEAN URL ROUTER (No hashes, no index.php) ----
+            function syncCleanUrl() {
                 if (isBookViewActive) return; 
                 const cleanMain = activeMainFilter.toLowerCase().replace(/\s+/g, '-');
                 const cleanSub = activeSubFilter.toLowerCase().replace(/\s+/g, '-');
-                const newHash = `#${cleanMain}/${cleanSub}`;
-                if(window.location.hash !== newHash) {
-                    window.history.replaceState(null, null, newHash);
+                const newPath = `/${cleanMain}/${cleanSub}`;
+                
+                if (window.location.pathname !== newPath) {
+                    window.history.replaceState(null, null, newPath);
                 }
             }
 
@@ -712,7 +714,7 @@ $galleryItems = getGalleryItems();
 
                 void grid.offsetHeight;
                 grid.style.display = '';
-                syncUrlHash();
+                syncCleanUrl();
             }
 
             function renderSubFilters(mainCategory) {
@@ -781,13 +783,14 @@ $galleryItems = getGalleryItems();
                 });
             });
 
-            const initHash = window.location.hash.replace('#', '').split('/');
-            if (initHash.length > 0 && initHash[0] !== '' && initHash[0] !== 'home' && initHash[0] !== 'portfolio') {
-                const targetMain = Array.from(filterButtons).find(b => b.getAttribute('data-filter').toLowerCase().replace(/\s+/g, '-') === initHash[0]);
+            // LOAD FILTER STATE FROM CLEAN URL PATH (e.g. /painting/2020s)
+            const pathSegments = window.location.pathname.split('/').filter(Boolean);
+            if (pathSegments.length > 0) {
+                const targetMain = Array.from(filterButtons).find(b => b.getAttribute('data-filter').toLowerCase().replace(/\s+/g, '-') === pathSegments[0]);
                 if (targetMain) {
                     activeMainFilter = targetMain.getAttribute('data-filter');
-                    if (initHash.length > 1 && subCategoriesMap[activeMainFilter]) {
-                        const targetSub = subCategoriesMap[activeMainFilter].find(s => s.toLowerCase().replace(/\s+/g, '-') === decodeURIComponent(initHash[1]));
+                    if (pathSegments.length > 1 && subCategoriesMap[activeMainFilter]) {
+                        const targetSub = subCategoriesMap[activeMainFilter].find(s => s.toLowerCase().replace(/\s+/g, '-') === decodeURIComponent(pathSegments[1]));
                         if (targetSub) activeSubFilter = targetSub;
                     }
                 }
@@ -861,7 +864,7 @@ $galleryItems = getGalleryItems();
                         const images = JSON.parse(imagesRaw);
                         images.forEach((imgUrl, i) => {
                             const pageDiv = document.createElement('div');
-                            pageDiv.className = 'temp-book-page lightbox-trigger cursor-pointer gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-[#D8D5CD] show-item shadow-sm hover:shadow-xl';
+                            pageDiv.className = 'temp-book-page lightbox-trigger cursor-pointer gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-[#D1C9BB] show-item shadow-sm hover:shadow-xl';
                             const labelText = i === 0 ? 'Cover' : 'Page ' + i;
 
                             pageDiv.setAttribute('data-title', title + ' - ' + labelText);
@@ -881,7 +884,7 @@ $galleryItems = getGalleryItems();
                 
                 const cleanMain = activeMainFilter.toLowerCase().replace(/\s+/g, '-');
                 const cleanTitle = title.toLowerCase().replace(/\s+/g, '-');
-                window.history.replaceState(null, null, `#${cleanMain}/view-${cleanTitle}`);
+                window.history.replaceState(null, null, `/${cleanMain}/view-${cleanTitle}`);
             }
 
             closeBookViewBtn.addEventListener('click', () => {

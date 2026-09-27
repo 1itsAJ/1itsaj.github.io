@@ -236,30 +236,30 @@ $galleryItems = getPressItems();
         }
     </style>
 </head>
-<body class="bg-[#D1C9BB] text-gray-900 antialiased font-sans">
+<body class="bg-[#D8D5CD] text-gray-900 antialiased font-sans">
 
-    <nav class="fixed w-full top-0 z-50 bg-[#D1C9BB]/80 backdrop-blur-md border-b border-[#A8A296]">
+    <nav class="fixed w-full top-0 z-50 bg-[#D8D5CD]/80 backdrop-blur-md border-b border-[#A8A296]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="text-2xl font-serif font-semibold tracking-wide">Hayan Art</a>
+                    <a href="/" class="text-2xl font-serif font-semibold tracking-wide">Hayan Art</a>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html#home" class="text-black hover:opacity-70 transition-opacity font-medium">Home</a>
+                    <a href="/" class="text-black hover:opacity-70 transition-opacity font-medium">Home</a>
                     
                     <div class="relative group">
-                        <a href="index.html#portfolio" class="text-black hover:opacity-70 transition-opacity font-medium flex items-center gap-1 focus:outline-none">
+                        <a href="/#portfolio" class="text-black hover:opacity-70 transition-opacity font-medium flex items-center gap-1 focus:outline-none">
                             Artworks
                         </a>
                     </div>
 
                     <div class="relative group">
-                        <a href="index.html#portfolio" class="text-black hover:opacity-70 transition-opacity font-medium flex items-center gap-1 focus:outline-none">
+                        <a href="/#portfolio" class="text-black hover:opacity-70 transition-opacity font-medium flex items-center gap-1 focus:outline-none">
                             Collections
                         </a>
                     </div>
                     
-                    <a href="press.html" class="text-black hover:opacity-70 transition-opacity font-medium">Press</a>
+                    <a href="press" class="text-black hover:opacity-70 transition-opacity font-medium">Press</a>
                     <a href="cv.html" class="text-black hover:opacity-70 transition-opacity font-medium">CV</a>
                 </div>
             </div>
@@ -286,9 +286,9 @@ $galleryItems = getPressItems();
                 </div>
                 
                 <div class="w-full md:w-2/3 lg:w-3/4 flex flex-col justify-start text-left pt-2">
-                    <h2 class="text-2xl md:text-3xl font-serif text-black mb-4 flex flex-wrap items-baseline gap-3">
+                    <h2 class="text-lg md:text-xl font-serif text-black mb-4 flex flex-wrap items-baseline gap-3">
                         <span id="book-header-title" class="font-bold"></span> 
-                        <span id="book-header-year" class="text-gray-500 font-light text-xl"></span>
+                        <span id="book-header-year" class="text-gray-500 font-light text-base"></span>
                     </h2>
                     
                     <hr class="border-t border-black w-full mb-6">
@@ -310,9 +310,9 @@ $galleryItems = getPressItems();
         </div>
 
         <!-- GRID OF ITEMS -->
-        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 relative items-start">
+        <div id="gallery-grid" class="flex flex-wrap justify-center gap-4 md:gap-6 relative">
             <?php foreach ($galleryItems as $item): ?>
-                <div class="gallery-item group relative mb-4 md:mb-6 w-full overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer <?php echo isset($item['is_book']) ? 'book-trigger' : 'lightbox-trigger'; ?>" 
+                <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer <?php echo isset($item['is_book']) ? 'book-trigger' : 'lightbox-trigger'; ?>" 
                      data-title="<?php echo htmlspecialchars($item['title']); ?>"
                      data-info="<?php echo htmlspecialchars($item['raw_text'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"
                      data-summary="<?php echo htmlspecialchars($item['summary'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"
@@ -323,7 +323,7 @@ $galleryItems = getPressItems();
                     
                     <img src="<?php echo $item['url']; ?>" 
                          alt="<?php echo htmlspecialchars($item['title']); ?>" 
-                         class="w-full block transition-all duration-700 group-hover:scale-105 aspect-square object-cover object-top blur-md"
+                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -339,9 +339,8 @@ $galleryItems = getPressItems();
                             </p>
                         <?php endif; ?>
 
-                        <!-- Added Flex container for Read Now button and Date side-by-side -->
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D1C9BB] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
                                 Read Now
                             </span>
                             <?php if (!empty($item['date'])): ?>
@@ -358,8 +357,8 @@ $galleryItems = getPressItems();
     </section>
 
     <!-- ELEGANT LIGHTBOX -->
-    <div id="lightbox" class="fixed inset-0 z-[100] bg-[#D1C9BB] hidden opacity-0 transition-opacity duration-300 overflow-y-auto">
-        <button id="lightbox-close" class="fixed top-6 right-8 md:top-10 md:right-12 text-black hover:opacity-60 focus:outline-none z-[101] transition-opacity bg-[#D1C9BB]/80 rounded-full p-2">
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-[#D8D5CD] hidden opacity-0 transition-opacity duration-300 overflow-y-auto">
+        <button id="lightbox-close" class="fixed top-6 right-8 md:top-10 md:right-12 text-black hover:opacity-60 focus:outline-none z-[101] transition-opacity bg-[#D8D5CD]/80 rounded-full p-2">
             <svg class="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
 
@@ -369,10 +368,9 @@ $galleryItems = getPressItems();
             </div>
             
             <div class="w-full md:w-1/2 flex flex-col justify-center text-left">
-                <!-- FORCED BOLD ON LIGHTBOX TITLE -->
-                <h2 class="text-2xl md:text-3xl font-serif text-black mb-4 font-bold flex flex-wrap items-baseline gap-3">
+                <h2 class="text-lg md:text-xl font-serif text-black mb-4 font-bold flex flex-wrap items-baseline gap-3">
                     <span id="lightbox-title">Artwork Title</span>
-                    <span id="lightbox-date" class="text-gray-600 font-light text-xl"></span>
+                    <span id="lightbox-date" class="text-gray-600 font-light text-base"></span>
                 </h2>
                 
                 <hr class="border-t border-black w-full mb-6">
@@ -401,7 +399,7 @@ $galleryItems = getPressItems();
         <img id="fullscreen-img" src="" class="max-w-full max-h-full object-contain drop-shadow-2xl">
     </div>
 
-    <footer id="contact" class="bg-[#D1C9BB] pt-16 pb-8 text-black relative border-t border-[#A8A296]">
+    <footer id="contact" class="bg-[#D8D5CD] pt-16 pb-8 text-black relative border-t border-[#A8A296]">
         <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -418,7 +416,7 @@ $galleryItems = getPressItems();
 
                 <div class="w-full md:w-2/3 flex flex-col sm:flex-row justify-between md:justify-end md:gap-24 font-sans text-[15px] leading-relaxed">
                     <div class="flex flex-col gap-1.5 mb-6 sm:mb-0">
-                        <a href="index.html#home" class="hover:opacity-70 hover:underline transition-all">Home</a>
+                        <a href="/" class="hover:opacity-70 hover:underline transition-all">Home</a>
                         <a href="cv.html" class="hover:opacity-70 hover:underline transition-all">About</a>
                         <a href="mailto:hello@hayan.art" class="hover:opacity-70 hover:underline transition-all">Contact</a>
                     </div>
@@ -451,7 +449,6 @@ $galleryItems = getPressItems();
             let isBookViewActive = false;
             let currentBookIndex = -1;
             
-            // All items visible on press.html initially
             const currentVisibleBooks = Array.from(document.querySelectorAll('.book-trigger'));
 
             document.addEventListener('click', (e) => {
@@ -474,7 +471,6 @@ $galleryItems = getPressItems();
                 const rawSummary = trigger.getAttribute('data-summary');
                 const date = trigger.getAttribute('data-date');
                 
-                // Set cover image and pre-blur it until loaded
                 const coverImgEl = document.getElementById('book-header-cover');
                 coverImgEl.classList.add('blur-md');
                 coverImgEl.src = trigger.querySelector('img').src;
@@ -492,7 +488,6 @@ $galleryItems = getPressItems();
 
                 document.getElementById('book-header-title').textContent = title;
                 
-                // Inject Date directly beside the Title
                 if (date) {
                     document.getElementById('book-header-year').textContent = date;
                 } else {
@@ -512,22 +507,20 @@ $galleryItems = getPressItems();
                 bookViewHeader.classList.add('flex');
 
                 document.querySelectorAll('.temp-book-page').forEach(el => el.remove());
-                grid.classList.remove('grid', 'grid-cols-1', 'sm:grid-cols-2', 'lg:grid-cols-3', 'xl:grid-cols-4', 'items-start');
-                grid.classList.add('columns-1', 'sm:columns-2', 'lg:columns-3', 'xl:columns-4');
-
+                
                 if (imagesRaw) {
                     try {
                         const images = JSON.parse(imagesRaw);
                         images.forEach((imgUrl, i) => {
                             const pageDiv = document.createElement('div');
-                            pageDiv.className = 'temp-book-page lightbox-trigger cursor-pointer gallery-item group relative break-inside-avoid mb-4 md:mb-6 inline-block w-full overflow-hidden rounded-md bg-[#D1C9BB] show-item shadow-sm hover:shadow-xl';
+                            pageDiv.className = 'temp-book-page lightbox-trigger cursor-pointer gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-[#D8D5CD] show-item shadow-sm hover:shadow-xl';
                             const labelText = i === 0 ? 'Cover' : 'Page ' + i;
 
                             pageDiv.setAttribute('data-title', title + ' - ' + labelText);
                             pageDiv.setAttribute('data-info', '');
 
                             pageDiv.innerHTML = `
-                                <img src="${imgUrl}" alt="${labelText}" class="w-full h-auto block transition-all duration-700 group-hover:scale-105 blur-md" onload="this.classList.remove('blur-md')" loading="lazy">
+                                <img src="${imgUrl}" alt="${labelText}" class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md" onload="this.classList.remove('blur-md')" loading="lazy">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                     <span class="text-white text-lg font-serif font-bold">${labelText}</span>
                                 </div>
@@ -538,6 +531,8 @@ $galleryItems = getPressItems();
                 }
                 
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                const cleanTitle = title.toLowerCase().replace(/\s+/g, '-');
+                window.history.replaceState(null, null, `/press/view-${cleanTitle}`);
             }
 
             closeBookViewBtn.addEventListener('click', () => {
@@ -545,10 +540,8 @@ $galleryItems = getPressItems();
                 document.querySelectorAll('.temp-book-page').forEach(el => el.remove());
                 bookViewHeader.classList.remove('flex');
                 bookViewHeader.classList.add('hidden');
+                window.history.replaceState(null, null, `/press`);
                 
-                grid.classList.remove('columns-1', 'sm:columns-2', 'lg:columns-3', 'xl:columns-4');
-                grid.classList.add('grid', 'grid-cols-1', 'sm:grid-cols-2', 'lg:grid-cols-3', 'xl:grid-cols-4', 'items-start');
-
                 galleryItems.forEach(item => {
                     item.classList.remove('hidden-item');
                     item.classList.add('show-item');
@@ -574,7 +567,6 @@ $galleryItems = getPressItems();
                 const item = currentLightboxItems[index];
                 const img = item.querySelector('img');
                 
-                // Set to blur, then load new image. onload attribute handles unblurring.
                 lightboxImg.classList.add('blur-md');
                 lightboxImg.src = img.src;
                 
@@ -604,7 +596,6 @@ $galleryItems = getPressItems();
 
             grid.addEventListener('click', (e) => {
                 const item = e.target.closest('.lightbox-trigger');
-                // Don't trigger if it's a book cover on the main grid (that triggers openBookView)
                 if (!item || item.classList.contains('book-trigger')) return;
 
                 e.preventDefault(); 
@@ -679,24 +670,17 @@ $galleryItems = getPressItems();
                 }, 300);
             }
 
-            // Scroll to zoom logic
             fullscreenOverlay.addEventListener('wheel', (e) => {
                 e.preventDefault();
                 const zoomSpeed = 0.15;
-                if (e.deltaY < 0) {
-                    zoomLevel += zoomSpeed; // Zoom in
-                } else {
-                    zoomLevel -= zoomSpeed; // Zoom out
-                }
+                if (e.deltaY < 0) zoomLevel += zoomSpeed; 
+                else zoomLevel -= zoomSpeed; 
                 
-                // Limit zoom between 0.5x and 5x
                 zoomLevel = Math.max(0.5, Math.min(zoomLevel, 5));
-                
                 fullscreenImg.style.transform = `scale(${zoomLevel})`;
                 fullscreenImg.style.transition = 'transform 0.1s ease-out';
             }, { passive: false });
 
-            // Mouse move auto-pan logic
             fullscreenOverlay.addEventListener('mousemove', (e) => {
                 if (zoomLevel > 1) {
                     const rect = fullscreenOverlay.getBoundingClientRect();
@@ -708,13 +692,11 @@ $galleryItems = getPressItems();
                 }
             });
 
-            // Click image inside Lightbox to open fullscreen zoom
             document.getElementById('lightbox-img').addEventListener('click', (e) => {
                 e.stopPropagation();
                 openFullscreen(e.target.src);
             });
 
-            // Click cover inside Book Header to open fullscreen zoom
             document.getElementById('book-header-cover').addEventListener('click', (e) => {
                 e.stopPropagation();
                 openFullscreen(e.target.src);
@@ -727,13 +709,11 @@ $galleryItems = getPressItems();
             });
             
             document.addEventListener('keydown', (e) => {
-                // If Fullscreen is open, ONLY close fullscreen
                 if (!fullscreenOverlay.classList.contains('hidden')) {
                     if (e.key === 'Escape') closeFullscreen();
                     return; 
                 }
 
-                // If regular lightbox is open
                 if (!lightbox.classList.contains('hidden')) {
                     if (e.key === 'Escape') closeLightbox();
                     if (e.key === 'ArrowLeft' && currentLightboxIndex > 0) {
