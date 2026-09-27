@@ -445,7 +445,7 @@ $galleryItems = getGalleryItems();
                     </div>
                     
                     <a href="/press" class="text-black hover:opacity-70 transition-opacity font-medium">Press</a>
-                    <a href="/cv.html" class="text-black hover:opacity-70 transition-opacity font-medium">CV</a>
+                    <a href="/cv" class="text-black hover:opacity-70 transition-opacity font-medium">CV</a>
                 </div>
             </div>
         </div>
