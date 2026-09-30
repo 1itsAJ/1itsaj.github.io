@@ -1,16 +1,16 @@
 RewriteEngine On
 
-# 1. Route /press AND its sub-paths (like /press/view-magazine)
+# 1. Route /press and its sub-paths to press.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^press(/.*)?$ press.html [QSA,L]
 
-# 2. Make CV clean too (optional, but highly recommended)
+# 2. Route /cv to cv.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^cv(/.*)?$ cv.html [QSA,L]
+RewriteRule ^cv$ cv.html [QSA,L]
 
-# 3. Route all gallery paths (like /painting/1980s) to index
+# 3. Route everything else (gallery paths) to index.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(/.*)$ index.html [QSA,L]
+RewriteRule ^(.*)$ index.html [QSA,L]

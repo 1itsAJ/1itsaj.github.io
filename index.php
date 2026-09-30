@@ -424,9 +424,9 @@ $galleryItems = getGalleryItems();
                         </a>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="index.html#printmaking/all-eras" data-main="Printmaking" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Printmaking</a>
-                                <a href="index.html#painting/all-eras" data-main="painting" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Painting</a>
-                                <a href="index.html#on-paper/all-eras" data-main="on-paper" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">On Paper</a>
+                                <a href="/printmaking/all-eras" data-main="Printmaking" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Printmaking</a>
+                                <a href="/painting/all-eras" data-main="painting" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Painting</a>
+                                <a href="/on-paper/all-eras" data-main="on-paper" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">On Paper</a>
                             </div>
                         </div>
                     </div>
@@ -438,8 +438,8 @@ $galleryItems = getGalleryItems();
                         </a>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="index.html#art-book/all-eras" data-main="art-book" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Art Book</a>
-                                <a href="index.html#portfolio/all-eras" data-main="portfolio" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Portfolio</a>
+                                <a href="/art-book/all-eras" data-main="art-book" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Art Book</a>
+                                <a href="/portfolio/all-eras" data-main="portfolio" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Portfolio</a>
                             </div>
                         </div>
                     </div>
@@ -501,7 +501,6 @@ $galleryItems = getGalleryItems();
                     </div>
                     
                     <div class="w-full md:w-2/3 lg:w-3/4 flex flex-col justify-start text-left pt-2">
-                        <!-- REDUCED TITLE SIZE (text-lg md:text-xl) -->
                         <h2 class="text-lg md:text-xl font-serif text-black mb-4 flex flex-wrap items-baseline gap-3">
                             <span id="book-header-title" class="font-bold"></span> 
                             <span id="book-header-year" class="text-gray-500 font-light text-base"></span>
@@ -578,7 +577,6 @@ $galleryItems = getGalleryItems();
             </div>
             
             <div class="w-full md:w-1/2 flex flex-col justify-center text-left">
-                <!-- REDUCED TITLE SIZE (text-lg md:text-xl) -->
                 <h2 class="text-lg md:text-xl font-serif text-black mb-4">
                     <span id="lightbox-title">Artwork Title</span>
                 </h2>
@@ -649,32 +647,28 @@ $galleryItems = getGalleryItems();
         </div>
     </footer>
 
-    <<script>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // --- SMART NAV INTERCEPTOR ---
             document.querySelectorAll('.smart-nav-link').forEach(link => {
                 link.addEventListener('click', (e) => {
-                    // Only intercept if we are currently on the gallery page
                     if (document.getElementById('gallery-grid')) {
                         e.preventDefault(); 
-                        
                         const targetMain = link.getAttribute('data-main');
                         const targetSub = link.getAttribute('data-sub');
                         
-                        // Click the hidden main filter button
                         const mainBtn = document.querySelector(`[data-filter="${targetMain}"]`);
                         if (mainBtn) mainBtn.click();
                         
-                        // Wait a tiny fraction of a second for sub-buttons to render, then click the sub filter
                         setTimeout(() => {
                             const subBtn = document.querySelector(`[data-subfilter="${targetSub}"]`);
                             if (subBtn) subBtn.click();
-                            
-                            // Smooth scroll down to the portfolio section!
                             document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
                         }, 50);
                     }
                 });
             });
+
             const filterButtons = document.querySelectorAll('.filter-btn');
             const subFilterContainer = document.getElementById('sub-filter-buttons');
             const galleryItems = document.querySelectorAll('.gallery-item');
@@ -697,15 +691,14 @@ $galleryItems = getGalleryItems();
                 'portfolio': ['All Eras', '1990s', '2000s', '2010s', '2020s']
             };
 
-            // ---- CLEAN URL ROUTER (No hashes, no index.php) ----
+            // ---- PURE CLEAN URL ROUTER ----
             function syncCleanUrl() {
                 if (isBookViewActive) return; 
                 const cleanMain = activeMainFilter.toLowerCase().replace(/\s+/g, '-');
                 const cleanSub = activeSubFilter.toLowerCase().replace(/\s+/g, '-');
                 const newPath = `/${cleanMain}/${cleanSub}`;
                 
-                // Instantly erase "index.html#" from the address bar to make it beautiful
-                if (window.location.pathname !== newPath || window.location.hash !== '') {
+                if (window.location.pathname !== newPath) {
                     window.history.replaceState(null, null, newPath);
                 }
             }
@@ -740,7 +733,7 @@ $galleryItems = getGalleryItems();
 
                 void grid.offsetHeight;
                 grid.style.display = '';
-                syncCleanUrl(); // Runs the URL cleanup
+                syncCleanUrl();
             }
 
             function renderSubFilters(mainCategory) {
@@ -809,16 +802,8 @@ $galleryItems = getGalleryItems();
                 });
             });
 
-            // LOAD FILTER STATE INTELIGENTLY (Reads Hash first, then Pathname)
-            const rawHash = window.location.hash.replace('#', '');
-            let pathSegments = window.location.pathname.split('/').filter(Boolean);
-            let didLoadFromHash = false;
-
-            // If incoming link has a hash (like from CV or Press pages)
-            if (rawHash && rawHash !== 'home' && rawHash !== 'portfolio') {
-                pathSegments = rawHash.split('/');
-                didLoadFromHash = true;
-            }
+            // LOAD FILTER STATE INTELLIGENTLY FROM PATHNAME
+            const pathSegments = window.location.pathname.split('/').filter(Boolean);
 
             if (pathSegments.length > 0 && pathSegments[0] !== 'index.html' && pathSegments[0] !== 'index.php') {
                 const targetMain = Array.from(filterButtons).find(b => b.getAttribute('data-filter').toLowerCase().replace(/\s+/g, '-') === pathSegments[0]);
@@ -843,14 +828,13 @@ $galleryItems = getGalleryItems();
             renderSubFilters(activeMainFilter);
             updateGallery();
 
-            // Automatically scroll down to gallery if they clicked a link from another page!
-            if (didLoadFromHash || rawHash === 'portfolio') {
+            // Auto-scroll down to gallery if a specific gallery path or #portfolio was loaded
+            if (window.location.hash === '#portfolio' || (pathSegments.length > 0 && pathSegments[0] !== 'index.html' && pathSegments[0] !== 'index.php')) {
                 setTimeout(() => {
-                    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                    const portfolioSection = document.getElementById('portfolio');
+                    if(portfolioSection) portfolioSection.scrollIntoView({ behavior: 'smooth' });
                 }, 100);
             }
-            renderSubFilters(activeMainFilter);
-            updateGallery();
 
             document.addEventListener('click', (e) => {
                 const trigger = e.target.closest('.book-trigger');

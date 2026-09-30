@@ -15,9 +15,9 @@ if (!function_exists('normalizeId')) {
     }
 }
 
-// Dedicated Press Parser (Detects Title, Description, Summary, and Date columns)
+// Dedicated Press Parser (Detects Title, Description, Summary, Date, and Newspaper columns)
 function parsePressCsv($csvPath) {
-    $data = ['info' => [], 'titles' => [], 'summaries' => [], 'dates' => []];
+    $data = ['info' => [], 'titles' => [], 'summaries' => [], 'dates' => [], 'newspapers' => []];
     if (file_exists($csvPath)) {
         $firstLine = @file_get_contents($csvPath, false, null, 0, 500);
         $delimiter = (strpos($firstLine, ';') !== false) ? ';' : ',';
@@ -30,6 +30,7 @@ function parsePressCsv($csvPath) {
                 $descIndex = -1;
                 $summaryIndex = -1;
                 $dateIndex = -1;
+                $newspaperIndex = -1;
 
                 foreach ($headers as $k => $v) {
                     $val = strtolower(trim($v));
@@ -37,6 +38,7 @@ function parsePressCsv($csvPath) {
                     elseif (in_array($val, ['description', 'info', 'text', 'desc'])) $descIndex = $k;
                     elseif (strpos($val, 'summar') !== false || strpos($val, 'summer') !== false) $summaryIndex = $k;
                     elseif (strpos($val, 'date') !== false || strpos($val, 'year') !== false) $dateIndex = $k;
+                    elseif (in_array($val, ['newspaper', 'source', 'publication', 'magazine', 'publisher'])) $newspaperIndex = $k;
                 }
 
                 if ($titleIndex === -1) $titleIndex = 1; 
@@ -58,6 +60,9 @@ function parsePressCsv($csvPath) {
                         }
                         if ($dateIndex !== -1 && isset($row[$dateIndex]) && trim($row[$dateIndex]) !== '') {
                             $data['dates'][$key] = trim($row[$dateIndex]);
+                        }
+                        if ($newspaperIndex !== -1 && isset($row[$newspaperIndex]) && trim($row[$newspaperIndex]) !== '') {
+                            $data['newspapers'][$key] = trim($row[$newspaperIndex]);
                         }
                     }
                 }
@@ -84,6 +89,7 @@ function getPressItems() {
     $pressTitles = $pressData['titles'];
     $pressSummaries = $pressData['summaries'];
     $pressDates = $pressData['dates'];
+    $pressNewspapers = $pressData['newspapers'];
 
     $pressPath = $baseDir . DIRECTORY_SEPARATOR . $cvDirName . DIRECTORY_SEPARATOR . 'press';
 
@@ -123,6 +129,7 @@ function getPressItems() {
             $rawText = isset($pressInfo[$lookupKey]) ? $pressInfo[$lookupKey] : '';
             $summaryText = isset($pressSummaries[$lookupKey]) ? $pressSummaries[$lookupKey] : '';
             $dateText = isset($pressDates[$lookupKey]) ? $pressDates[$lookupKey] : '';
+            $newspaperText = isset($pressNewspapers[$lookupKey]) ? $pressNewspapers[$lookupKey] : 'Newspaper';
 
             $relativePath = substr($path, strlen($baseDir) + 1);
             $webUrl = str_replace('\\', '/', $relativePath);
@@ -135,7 +142,8 @@ function getPressItems() {
                 'subcat' => '', 
                 'raw_text' => $rawText,
                 'summary' => $summaryText,
-                'date' => $dateText
+                'date' => $dateText,
+                'newspaper' => $newspaperText
             ];
         }
 
@@ -147,6 +155,7 @@ function getPressItems() {
             $rawText = isset($pressInfo[$lookupKey]) ? $pressInfo[$lookupKey] : '';
             $summaryText = isset($pressSummaries[$lookupKey]) ? $pressSummaries[$lookupKey] : '';
             $dateText = isset($pressDates[$lookupKey]) ? $pressDates[$lookupKey] : '';
+            $newspaperText = isset($pressNewspapers[$lookupKey]) ? $pressNewspapers[$lookupKey] : 'Newspaper';
 
             usort($images, function($a, $b) {
                 return strnatcasecmp(basename($a), basename($b));
@@ -170,7 +179,8 @@ function getPressItems() {
                     'book_contents' => json_encode($pages),
                     'raw_text' => $rawText,
                     'summary' => $summaryText,
-                    'date' => $dateText
+                    'date' => $dateText,
+                    'newspaper' => $newspaperText
                 ];
             }
         }
@@ -187,7 +197,6 @@ $galleryItems = getPressItems();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hayan Art | Press & Publications</title>
-    <base href="/">
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -239,7 +248,7 @@ $galleryItems = getPressItems();
 </head>
 <body class="bg-[#D8D5CD] text-gray-900 antialiased font-sans">
 
-    <nav class="fixed w-full top-0 z-50 bg-[#D1C9BB]/80 backdrop-blur-md border-b border-[#A8A296]">
+    <nav class="fixed w-full top-0 z-50 bg-[#D8D5CD]/80 backdrop-blur-md border-b border-[#A8A296]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
@@ -255,9 +264,9 @@ $galleryItems = getPressItems();
                         </a>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="index.html#printmaking/all-eras" data-main="Printmaking" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Printmaking</a>
-                                <a href="index.html#painting/all-eras" data-main="painting" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Painting</a>
-                                <a href="index.html#on-paper/all-eras" data-main="on-paper" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">On Paper</a>
+                                <a href="/printmaking/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Printmaking</a>
+                                <a href="/painting/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Painting</a>
+                                <a href="/on-paper/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">On Paper</a>
                             </div>
                         </div>
                     </div>
@@ -269,8 +278,8 @@ $galleryItems = getPressItems();
                         </a>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="index.html#art-book/all-eras" data-main="art-book" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Art Book</a>
-                                <a href="index.html#portfolio/all-eras" data-main="portfolio" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Portfolio</a>
+                                <a href="/art-book/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Art Book</a>
+                                <a href="/portfolio/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Portfolio</a>
                             </div>
                         </div>
                     </div>
@@ -305,6 +314,7 @@ $galleryItems = getPressItems();
                     <h2 class="text-lg md:text-xl font-serif text-black mb-4 flex flex-wrap items-baseline gap-3">
                         <span id="book-header-title" class="font-bold"></span> 
                         <span id="book-header-year" class="text-gray-500 font-light text-base"></span>
+                        <span id="book-header-newspaper" class="text-gray-500 font-medium text-base ml-1"></span>
                     </h2>
                     
                     <hr class="border-t border-black w-full mb-6">
@@ -325,21 +335,22 @@ $galleryItems = getPressItems();
             </div>
         </div>
 
-        <!-- GRID OF ITEMS -->
+        <!-- GRID OF ITEMS (Forced 2:2 / 1:1 Aspect Ratio) -->
         <div id="gallery-grid" class="flex flex-wrap justify-center gap-4 md:gap-6 relative">
             <?php foreach ($galleryItems as $item): ?>
-                <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer <?php echo isset($item['is_book']) ? 'book-trigger' : 'lightbox-trigger'; ?>" 
+                <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer <?php echo isset($item['is_book']) ? 'book-trigger' : 'lightbox-trigger'; ?>" 
                      data-title="<?php echo htmlspecialchars($item['title']); ?>"
                      data-info="<?php echo htmlspecialchars($item['raw_text'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"
                      data-summary="<?php echo htmlspecialchars($item['summary'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"
                      data-date="<?php echo htmlspecialchars($item['date'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"
+                     data-newspaper="<?php echo htmlspecialchars($item['newspaper'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"
                      <?php if(isset($item['is_book'])) echo "data-book-contents='" . htmlspecialchars($item['book_contents'], ENT_QUOTES, 'UTF-8') . "'"; ?>
                      <?php if(isset($item['is_book'])) echo "data-book-title='" . htmlspecialchars($item['title'], ENT_QUOTES, 'UTF-8') . "'"; ?>
                      >
                     
                     <img src="<?php echo $item['url']; ?>" 
                          alt="<?php echo htmlspecialchars($item['title']); ?>" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -356,12 +367,17 @@ $galleryItems = getPressItems();
                         <?php endif; ?>
 
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
                             <?php if (!empty($item['date'])): ?>
-                                <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     <?php echo htmlspecialchars($item['date']); ?>
+                                </span>
+                            <?php endif; ?>
+                            <?php if (!empty($item['newspaper'])): ?>
+                                <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    <?php echo (!empty($item['date']) ? '• ' : '') . htmlspecialchars($item['newspaper']); ?>
                                 </span>
                             <?php endif; ?>
                         </div>
@@ -387,6 +403,7 @@ $galleryItems = getPressItems();
                 <h2 class="text-lg md:text-xl font-serif text-black mb-4 font-bold flex flex-wrap items-baseline gap-3">
                     <span id="lightbox-title">Artwork Title</span>
                     <span id="lightbox-date" class="text-gray-600 font-light text-base"></span>
+                    <span id="lightbox-newspaper" class="text-gray-600 font-medium text-base ml-1"></span>
                 </h2>
                 
                 <hr class="border-t border-black w-full mb-6">
@@ -486,6 +503,7 @@ $galleryItems = getPressItems();
                 const rawDesc = trigger.getAttribute('data-info');
                 const rawSummary = trigger.getAttribute('data-summary');
                 const date = trigger.getAttribute('data-date');
+                const newspaper = trigger.getAttribute('data-newspaper');
                 
                 const coverImgEl = document.getElementById('book-header-cover');
                 coverImgEl.classList.add('blur-md');
@@ -509,6 +527,12 @@ $galleryItems = getPressItems();
                 } else {
                     document.getElementById('book-header-year').textContent = '';
                 }
+
+                if (newspaper) {
+                    document.getElementById('book-header-newspaper').textContent = (date ? '• ' : '') + newspaper;
+                } else {
+                    document.getElementById('book-header-newspaper').textContent = '';
+                }
                 
                 let combinedHtml = '';
                 if (parsedSummary) combinedHtml += `<p class="text-xl md:text-2xl text-black mb-4 leading-relaxed">${parsedSummary}</p>`;
@@ -529,14 +553,15 @@ $galleryItems = getPressItems();
                         const images = JSON.parse(imagesRaw);
                         images.forEach((imgUrl, i) => {
                             const pageDiv = document.createElement('div');
-                            pageDiv.className = 'temp-book-page lightbox-trigger cursor-pointer gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-[#D8D5CD] show-item shadow-sm hover:shadow-xl';
+                            // Apply aspect-[2.5/2] to dynamically created pages as well
+                            pageDiv.className = 'temp-book-page lightbox-trigger cursor-pointer gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-[#D8D5CD] show-item shadow-sm hover:shadow-xl';
                             const labelText = i === 0 ? 'Cover' : 'Page ' + i;
 
                             pageDiv.setAttribute('data-title', title + ' - ' + labelText);
                             pageDiv.setAttribute('data-info', '');
 
                             pageDiv.innerHTML = `
-                                <img src="${imgUrl}" alt="${labelText}" class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md" onload="this.classList.remove('blur-md')" loading="lazy">
+                                <img src="${imgUrl}" alt="${labelText}" class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md" onload="this.classList.remove('blur-md')" loading="lazy">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                     <span class="text-white text-lg font-serif font-bold">${labelText}</span>
                                 </div>
@@ -548,7 +573,7 @@ $galleryItems = getPressItems();
                 
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 const cleanTitle = title.toLowerCase().replace(/\s+/g, '-');
-                window.history.replaceState(null, null, `/press/view-${cleanTitle}`);
+                window.history.replaceState(null, null, '/press/view-' + cleanTitle);
             }
 
             closeBookViewBtn.addEventListener('click', () => {
@@ -556,7 +581,7 @@ $galleryItems = getPressItems();
                 document.querySelectorAll('.temp-book-page').forEach(el => el.remove());
                 bookViewHeader.classList.remove('flex');
                 bookViewHeader.classList.add('hidden');
-                window.history.replaceState(null, null, `/press`);
+                window.history.replaceState(null, null, '/press'); 
                 
                 galleryItems.forEach(item => {
                     item.classList.remove('hidden-item');
@@ -593,11 +618,18 @@ $galleryItems = getPressItems();
                 const rawDesc = item.getAttribute('data-info') || '';
                 const rawSummary = item.getAttribute('data-summary') || '';
                 const date = item.getAttribute('data-date') || '';
+                const newspaper = item.getAttribute('data-newspaper') || '';
 
                 if (date) {
                     document.getElementById('lightbox-date').textContent = date;
                 } else {
                     document.getElementById('lightbox-date').textContent = '';
+                }
+
+                if (newspaper) {
+                    document.getElementById('lightbox-newspaper').textContent = (date ? '• ' : '') + newspaper;
+                } else {
+                    document.getElementById('lightbox-newspaper').textContent = '';
                 }
                 
                 let combinedHtml = '';

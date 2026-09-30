@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curriculum Vitae | Hayan Art</title>
-    <base href="/">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,9 +57,9 @@
                         </a>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="index.html#printmaking/all-eras" data-main="Printmaking" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Printmaking</a>
-                                <a href="index.html#painting/all-eras" data-main="painting" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Painting</a>
-                                <a href="index.html#on-paper/all-eras" data-main="on-paper" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">On Paper</a>
+                                <a href="/printmaking/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Printmaking</a>
+                                <a href="/painting/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Painting</a>
+                                <a href="/on-paper/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">On Paper</a>
                             </div>
                         </div>
                     </div>
@@ -72,14 +71,14 @@
                         </a>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="index.html#art-book/all-eras" data-main="art-book" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Art Book</a>
-                                <a href="index.html#portfolio/all-eras" data-main="portfolio" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Portfolio</a>
+                                <a href="/art-book/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Art Book</a>
+                                <a href="/portfolio/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Portfolio</a>
                             </div>
                         </div>
                     </div>
                     
                     <a href="/press" class="text-black hover:opacity-70 transition-opacity font-medium">Press</a>
-                    <a href="/cv.html" class="text-black hover:opacity-70 transition-opacity font-medium">CV</a>
+                    <a href="/cv" class="text-black hover:opacity-70 transition-opacity font-medium">CV</a>
                 </div>
             </div>
         </div>
@@ -556,12 +555,10 @@
     </main>
 
     <footer id="contact" class="bg-[#ebe9e4] pt-16 pb-8 text-black relative border-t border-gray-300 text-left">
-        <!-- Subtle noise texture for paper feel -->
         <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-start mb-16">
-                <!-- Logo & Title -->
                 <div class="mb-10 md:mb-0">
                     <div class="mb-2">
                         <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -572,21 +569,17 @@
                     <h2 class="text-xl md:text-2xl font-sans font-medium tracking-wide">Hayan Art</h2>
                 </div>
 
-                <!-- 3 Columns -->
                 <div class="flex flex-wrap gap-12 md:gap-24 font-sans text-[15px] leading-snug">
-                    <!-- Nav -->
                     <div class="flex flex-col gap-1.5">
                         <a href="/#home" class="hover:text-black hover:underline transition-all">Home</a>
-                        <a href="/cv.html" class="hover:text-black hover:underline transition-all">CV</a>
+                        <a href="/cv" class="hover:text-black hover:underline transition-all">CV</a>
                         <a href="mailto:hello@hayan.art" class="hover:text-black hover:underline transition-all">Contact</a>
                     </div>
-                    <!-- Social -->
                     <div class="flex flex-col gap-1.5">
                         <a href="https://www.facebook.com/hayan.abduljabbar" class="hover:text-black hover:underline transition-all">Facebook</a>
                         <a href="#" class="hover:text-black hover:underline transition-all">Twitter</a>
                         <a href="#" class="hover:text-black hover:underline transition-all">LinkedIn</a>
                     </div>
-                    <!-- Info -->
                     <div class="flex flex-col gap-1.5">
                         <p>Phone Number: +964 770 392 6787</p>
                         <p>Baghdad, Iraq</p>
@@ -594,7 +587,6 @@
                 </div>
             </div>
 
-            <!-- Bottom Row -->
             <div class="flex flex-col md:flex-row justify-between items-center text-sm mt-12 pt-8 border-t border-gray-300/50">
                 <p class="mb-4 md:mb-0">Proudly designed by <a href="#" class="underline hover:text-black font-medium">Shams Hayan</a></p>
                 <p>&copy; 2026 Hayan. All Rights Reserved.</p>

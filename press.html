@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hayan Art | Press & Publications</title>
-    <base href="/">
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,7 +55,7 @@
 </head>
 <body class="bg-[#D8D5CD] text-gray-900 antialiased font-sans">
 
-    <nav class="fixed w-full top-0 z-50 bg-[#D1C9BB]/80 backdrop-blur-md border-b border-[#A8A296]">
+    <nav class="fixed w-full top-0 z-50 bg-[#D8D5CD]/80 backdrop-blur-md border-b border-[#A8A296]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
@@ -72,9 +71,9 @@
                         </a>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="index.html#printmaking/all-eras" data-main="Printmaking" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Printmaking</a>
-                                <a href="index.html#painting/all-eras" data-main="painting" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Painting</a>
-                                <a href="index.html#on-paper/all-eras" data-main="on-paper" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">On Paper</a>
+                                <a href="/printmaking/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Printmaking</a>
+                                <a href="/painting/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Painting</a>
+                                <a href="/on-paper/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">On Paper</a>
                             </div>
                         </div>
                     </div>
@@ -86,8 +85,8 @@
                         </a>
                         <div class="absolute left-0 mt-2 w-48 bg-[#E5DFD3] border border-[#A8A296] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0">
                             <div class="py-1">
-                                <a href="index.html#art-book/all-eras" data-main="art-book" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Art Book</a>
-                                <a href="index.html#portfolio/all-eras" data-main="portfolio" data-sub="All Eras" class="smart-nav-link block px-4 py-2 text-sm text-black hover:bg-[#D1C9BB]">Portfolio</a>
+                                <a href="/art-book/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Art Book</a>
+                                <a href="/portfolio/all-eras" class="block px-4 py-2 text-sm text-black hover:bg-[#D8D5CD]">Portfolio</a>
                             </div>
                         </div>
                     </div>
@@ -122,6 +121,7 @@
                     <h2 class="text-lg md:text-xl font-serif text-black mb-4 flex flex-wrap items-baseline gap-3">
                         <span id="book-header-title" class="font-bold"></span> 
                         <span id="book-header-year" class="text-gray-500 font-light text-base"></span>
+                        <span id="book-header-newspaper" class="text-gray-500 font-medium text-base ml-1"></span>
                     </h2>
                     
                     <hr class="border-t border-black w-full mb-6">
@@ -142,18 +142,19 @@
             </div>
         </div>
 
-        <!-- GRID OF ITEMS -->
+        <!-- GRID OF ITEMS (Forced 2:2 / 1:1 Aspect Ratio) -->
         <div id="gallery-grid" class="flex flex-wrap justify-center gap-4 md:gap-6 relative">
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Initial Indications Regarding the Sixth Party Exhibition"
                      data-info="Al-Thawra"
                      data-summary="The text mentions Hayan Abdul Jabbar among the young artists participating in the exhibition and describes his work as “more than excellent,” reflecting strong recognition of his artistic talent and potential within his generation."
                      data-date="04/11/1979"
+                     data-newspaper="Al-Thawra"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/1.jpg" 
                          alt="Initial Indications Regarding the Sixth Party Exhibition" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -166,25 +167,28 @@
                                 The text mentions Hayan Abdul Jabbar among the young artists participating in the exhibition and describes his work as “more than excellent,” reflecting strong recognition of his artistic talent and potential within his generation.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     04/11/1979                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al-Thawra                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Hayan at A Crossroads"
                      data-info="Al-Gomhuria"
                      data-summary="The text offers a critical reading of Hayan Abdul Jabbar’s artistic practice, describing him as positioned between two distinct approaches: graphic art and oil painting. His graphic works are seen as more figurative and focused on the personification of conflict, while his oil works move toward abstraction and greater freedom in line and color. The text also acknowledges the influence of Rafa Al-Nasiri, while noting that Hayan’s first exhibition demonstrated his ability to move beyond the learning stage and search for his own artistic language. His experience is presented as distinctive among his generation, particularly through his abstract works and their emphasis on the independent visual power of painting."
                      data-date="04/25/1990"
+                     data-newspaper="Al-Gomhuria"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/10.jpg" 
                          alt="Hayan at A Crossroads" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -197,25 +201,28 @@
                                 The text offers a critical reading of Hayan Abdul Jabbar’s artistic practice, describing him as positioned between two distinct approaches: graphic art and oil painting. His graphic works are seen as more figurative and focused on the personification of conflict, while his oil works move toward abstraction and greater freedom in line and color. The text also acknowledges the influence of Rafa Al-Nasiri, while noting that Hayan’s first exhibition demonstrated his ability to move beyond the learning stage and search for his own artistic language. His experience is presented as distinctive among his generation, particularly through his abstract works and their emphasis on the independent visual power of painting.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     04/25/1990                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al-Gomhuria                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Color Details"
                      data-info="Al Qadisiya"
                      data-summary="The text examines Hayan Abdul Jabbar’s first solo exhibition, focusing on his process of discovering and developing ideas through graphic art and oil painting on paper. It highlights the influence of Rafa Al-Nasiri as part of Hayan’s period of learning and experimentation, while emphasizing his gradual development of an independent artistic language. The human head emerges as the central and recurring motif in his works, explored through varied forms, colors, and relationships to express ideas, symbols, and human anxiety. The text also emphasizes the importance of color and repetition in his practice, with variations in execution serving as a means of continued artistic exploration and discovery."
                      data-date="04/30/1990"
+                     data-newspaper="Al Qadisiya"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/11.jpg" 
                          alt="Color Details" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -228,25 +235,28 @@
                                 The text examines Hayan Abdul Jabbar’s first solo exhibition, focusing on his process of discovering and developing ideas through graphic art and oil painting on paper. It highlights the influence of Rafa Al-Nasiri as part of Hayan’s period of learning and experimentation, while emphasizing his gradual development of an independent artistic language. The human head emerges as the central and recurring motif in his works, explored through varied forms, colors, and relationships to express ideas, symbols, and human anxiety. The text also emphasizes the importance of color and repetition in his practice, with variations in execution serving as a means of continued artistic exploration and discovery.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     04/30/1990                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Qadisiya                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Wellness and Enjoyment"
                      data-info="Al-Thawra"
                      data-summary="The text discusses Hayan Abdul Jabbar’s practice in painting and graphic art, noting the clear stylistic and technical influence of Rafa Al-Nasiri and Ali Talib. It praises his skill in handling form, line, color, and composition, and presents him as a young artist with strong technical abilities and clear potential to develop an independent artistic language. His work is characterized as a combination of technical refinement and an ongoing search for a distinctive mode of expression."
                      data-date="05/13/1990"
+                     data-newspaper="Al-Thawra"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/12.jpg" 
                          alt="Wellness and Enjoyment" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -259,25 +269,28 @@
                                 The text discusses Hayan Abdul Jabbar’s practice in painting and graphic art, noting the clear stylistic and technical influence of Rafa Al-Nasiri and Ali Talib. It praises his skill in handling form, line, color, and composition, and presents him as a young artist with strong technical abilities and clear potential to develop an independent artistic language. His work is characterized as a combination of technical refinement and an ongoing search for a distinctive mode of expression.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     05/13/1990                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al-Thawra                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="The Dream Outside the Painting"
                      data-info="Asharq Al-Awsat"
                      data-summary="The text examines Hayan Abdul Jabbar’s solo exhibition, focusing on his search for ideas and their transformation into visual forms through graphic art and oil painting on paper. The human head is presented as the central motif of his work, repeatedly explored through different forms, directions, colors, and relationships, with repetition serving as a method of artistic investigation and discovery. The text also highlights the influence of Rafa Al-Nasiri on Hayan’s style and techniques, while presenting this influence as part of his experimentation and development of an independent artistic language. His experience on the battlefronts is connected to his use of the military helmet as a symbolic extension of the human head. Hayan is characterized as a “thinking painter” whose work emphasizes ideas, color, mass, fragmentation, and visual interaction."
                      data-date="05/16/1990"
+                     data-newspaper="Asharq Al-Awsat"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/13.jpg" 
                          alt="The Dream Outside the Painting" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -290,25 +303,28 @@
                                 The text examines Hayan Abdul Jabbar’s solo exhibition, focusing on his search for ideas and their transformation into visual forms through graphic art and oil painting on paper. The human head is presented as the central motif of his work, repeatedly explored through different forms, directions, colors, and relationships, with repetition serving as a method of artistic investigation and discovery. The text also highlights the influence of Rafa Al-Nasiri on Hayan’s style and techniques, while presenting this influence as part of his experimentation and development of an independent artistic language. His experience on the battlefronts is connected to his use of the military helmet as a symbolic extension of the human head. Hayan is characterized as a “thinking painter” whose work emphasizes ideas, color, mass, fragmentation, and visual interaction.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     05/16/1990                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Asharq Al-Awsat                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Visual Artist Hayan Abdul Jabbar"
                      data-info="Students and Youth"
                      data-summary="The text presents Hayan Abdul Jabbar as a distinctive member of the younger generation of Iraqi visual artists, noting his graduation from the Institute of Fine Arts in Baghdad, Graphic Arts Department. It explains that his military service influenced certain expressive aspects of his oil paintings, while his graphic works were distinguished by a strong technical dimension. Hayan describes his solo exhibition as a culmination and development of his artistic experience, crediting his study under Rafa Al-Nasiri and his continued work at his studio with developing his technical skills and enriching his use of color, space, and composition. The text also notes his participation in numerous exhibitions in Iraq and abroad, and the development of his oil works, particularly their use of color and focus on the human head as a subject with intellectual and human dimensions."
                      data-date="05/23/1990"
+                     data-newspaper="Students and Youth"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/14.jpg" 
                          alt="Visual Artist Hayan Abdul Jabbar" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -321,25 +337,28 @@
                                 The text presents Hayan Abdul Jabbar as a distinctive member of the younger generation of Iraqi visual artists, noting his graduation from the Institute of Fine Arts in Baghdad, Graphic Arts Department. It explains that his military service influenced certain expressive aspects of his oil paintings, while his graphic works were distinguished by a strong technical dimension. Hayan describes his solo exhibition as a culmination and development of his artistic experience, crediting his study under Rafa Al-Nasiri and his continued work at his studio with developing his technical skills and enriching his use of color, space, and composition. The text also notes his participation in numerous exhibitions in Iraq and abroad, and the development of his oil works, particularly their use of color and focus on the human head as a subject with intellectual and human dimensions.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     05/23/1990                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Students and Youth                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Three Experiences in Mohtaraf Al-Nasri"
                      data-info="Rawaq Al Qadisiya"
                      data-summary="The text examines Hayan Abdul Jabbar’s work within the activities of Al-Mohtaraf, describing it as centered on a recurring theme concerning the tense relationship between the human figure and its surrounding environment. The human figure, represented through the head integrated with the body, appears in states of protest and alertness, with particular emphasis on the lips as an expressive element of movement and action. The text also notes his use of surrounding elements and open space to invite contemplation, while acknowledging the continuing influence of Rafa Al-Nasiri and presenting Hayan’s work as part of an individual exploration of graphic art and its possibilities within his own artistic formulation."
                      data-date="06/25/1990"
+                     data-newspaper="Rawaq Al Qadisiya"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/15.jpg" 
                          alt="Three Experiences in Mohtaraf Al-Nasri" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -352,25 +371,28 @@
                                 The text examines Hayan Abdul Jabbar’s work within the activities of Al-Mohtaraf, describing it as centered on a recurring theme concerning the tense relationship between the human figure and its surrounding environment. The human figure, represented through the head integrated with the body, appears in states of protest and alertness, with particular emphasis on the lips as an expressive element of movement and action. The text also notes his use of surrounding elements and open space to invite contemplation, while acknowledging the continuing influence of Rafa Al-Nasiri and presenting Hayan’s work as part of an individual exploration of graphic art and its possibilities within his own artistic formulation.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     06/25/1990                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Rawaq Al Qadisiya                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="The Mohtaraf Hall / a Return to Privacy or A Remembrance of The Past"
                      data-info="Al-Mawied"
                      data-summary="The text discusses Hayan Abdul Jabbar’s return to painting after a long absence, noting that his works combine elements of his earlier practice with new and more expansive directions, particularly in his treatment of surfaces and color. It considers his works presented at Al-Mohtaraf after his return among those that most confidently point toward the future while retaining traces of the transformations in his earlier artistic development. The text also highlights his history at the graphic workshop, where he began as Rafa Al-Nasiri’s student before becoming his colleague, emphasizing the evolution of his style and his ability to move beyond his previous work."
                      data-date="10/21/1998"
+                     data-newspaper="Al-Mawied"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/16.jpg" 
                          alt="The Mohtaraf Hall / a Return to Privacy or A Remembrance of The Past" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -383,25 +405,28 @@
                                 The text discusses Hayan Abdul Jabbar’s return to painting after a long absence, noting that his works combine elements of his earlier practice with new and more expansive directions, particularly in his treatment of surfaces and color. It considers his works presented at Al-Mohtaraf after his return among those that most confidently point toward the future while retaining traces of the transformations in his earlier artistic development. The text also highlights his history at the graphic workshop, where he began as Rafa Al-Nasiri’s student before becoming his colleague, emphasizing the evolution of his style and his ability to move beyond his previous work.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     10/21/1998                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al-Mawied                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Two Exhibitions in One"
                      data-info="Al-Mawied"
                      data-summary="The text notes Hayan Abdul Jabbar’s participation in exhibitions held by the Ur and Al-Mohtaraf galleries, where his graphic works were presented alongside works by prominent Iraqi visual artists. His graphic art is identified as part of the production associated with Rafa Al-Nasiri’s studio, reflecting the technical and executional characteristics for which the workshop was known."
                      data-date="04/07/1999"
+                     data-newspaper="Al-Mawied"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/17.jpg" 
                          alt="Two Exhibitions in One" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -414,25 +439,28 @@
                                 The text notes Hayan Abdul Jabbar’s participation in exhibitions held by the Ur and Al-Mohtaraf galleries, where his graphic works were presented alongside works by prominent Iraqi visual artists. His graphic art is identified as part of the production associated with Rafa Al-Nasiri’s studio, reflecting the technical and executional characteristics for which the workshop was known.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     04/07/1999                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al-Mawied                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Al Mohtaraf Graphics... a Distinctive Experience"
                      data-info="Alf Ba&#039;"
                      data-summary="The text discusses Hayan Abdul Jabbar’s participation in a graphic art exhibition at Al-Mohtaraf, where he presented two figurative works demonstrating strong compositional ability, effective distribution of surfaces, and an accomplished treatment of light. He also showed skill in handling printmaking materials, with some colors added after the printing process. Despite his limited participation in the field, the critic anticipated that Hayan would attain a distinctive position in graphic art within the Iraqi art movement."
                      data-date="06/30/1999"
+                     data-newspaper="Alf Ba&#039;"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/18.jpg" 
                          alt="Al Mohtaraf Graphics... a Distinctive Experience" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -445,27 +473,30 @@
                                 The text discusses Hayan Abdul Jabbar’s participation in a graphic art exhibition at Al-Mohtaraf, where he presented two figurative works demonstrating strong compositional ability, effective distribution of surfaces, and an accomplished treatment of light. He also showed skill in handling printmaking materials, with some colors added after the printing process. Despite his limited participation in the field, the critic anticipated that Hayan would attain a distinctive position in graphic art within the Iraqi art movement.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     06/30/1999                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Alf Ba&#039;                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Hayan Abdul Jabbar.
 The Body, or Self-Gladiation"
                      data-info="Al-Thawra"
                      data-summary="The text examines Hayan Abdul Jabbar’s artistic practice through the human body as a central subject of visual expression and aesthetic inquiry. It highlights his use of color, line, symbols, and artistic materials to transform the body into a vehicle for expressing memory, emotion, and life. Faces, heads, and bodies recur throughout his works, carrying a sense of ambiguity and tension, while the viewer is considered an essential participant in completing the work’s aesthetic meaning."
                      data-date="04/11/2002"
+                     data-newspaper="Al-Thawra"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/19.jpg" 
                          alt="Hayan Abdul Jabbar.
 The Body, or Self-Gladiation" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -479,25 +510,28 @@ The Body, or Self-Gladiation                        </h3>
                                 The text examines Hayan Abdul Jabbar’s artistic practice through the human body as a central subject of visual expression and aesthetic inquiry. It highlights his use of color, line, symbols, and artistic materials to transform the body into a vehicle for expressing memory, emotion, and life. Faces, heads, and bodies recur throughout his works, carrying a sense of ambiguity and tension, while the viewer is considered an essential participant in completing the work’s aesthetic meaning.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     04/11/2002                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al-Thawra                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Exhibitions of Planning and Creativity in Contemporary Iraqi Art"
                      data-info="Al-Thawra"
                      data-summary="The text notes the influence of graphic art on Hayan Abdul Jabbar’s drawings, relating this to his study and practice of graphic art. It places him among the young graduates of the Institute of Fine Arts who contributed to the development of Iraqi drawing and graphic art."
                      data-date="02/11/1980"
+                     data-newspaper="Al-Thawra"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/2.jpg" 
                          alt="Exhibitions of Planning and Creativity in Contemporary Iraqi Art" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -510,25 +544,28 @@ The Body, or Self-Gladiation                        </h3>
                                 The text notes the influence of graphic art on Hayan Abdul Jabbar’s drawings, relating this to his study and practice of graphic art. It places him among the young graduates of the Institute of Fine Arts who contributed to the development of Iraqi drawing and graphic art.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     02/11/1980                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al-Thawra                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Iraqi Graphic: Initial Observations"
                      data-info="Al-Thawra"
                      data-summary="The text highlights the role of Hayan Abdul Jabbar’s graphic studio in the development of graphic art in Iraq, identifying it as one of the graphic workshops that contributed to strengthening and expanding the practice of the medium. Hayan is also placed among the generation of Iraqi graphic artists who emerged through the experience of Rafa Al-Nasiri’s studio and contributed to the growing presence of graphic art within the Iraqi visual arts movement."
                      data-date="11/19/2002"
+                     data-newspaper="Al-Thawra"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/20.jpg" 
                          alt="Iraqi Graphic: Initial Observations" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -541,29 +578,32 @@ The Body, or Self-Gladiation                        </h3>
                                 The text highlights the role of Hayan Abdul Jabbar’s graphic studio in the development of graphic art in Iraq, identifying it as one of the graphic workshops that contributed to strengthening and expanding the practice of the medium. Hayan is also placed among the generation of Iraqi graphic artists who emerged through the experience of Rafa Al-Nasiri’s studio and contributed to the growing presence of graphic art within the Iraqi visual arts movement.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     11/19/2002                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al-Thawra                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Iraqi Sculpture Loses One of Its Giants
 Ismail Fattah Al-Turk
 a Keen Eye and Creative Hands"
                      data-info="&#039;-"
                      data-summary="The text includes the testimony of artist Hayan Abdul Jabbar in remembrance of Ismail Fattah Al-Turk, recalling his relationship with him and with the wider Iraqi artistic community. Hayan speaks of Ismail’s artistic and human qualities, emphasizing his generosity and his supportive relationship with artists and younger generations. The text also refers to a letter Ismail sent to Hayan from Abu Dhabi, reflecting the continued artistic and personal connection between them toward the later period of Ismail’s life."
                      data-date="07/25/2004"
+                     data-newspaper="&#039;-"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/21.jpg" 
                          alt="Iraqi Sculpture Loses One of Its Giants
 Ismail Fattah Al-Turk
 a Keen Eye and Creative Hands" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -578,25 +618,28 @@ a Keen Eye and Creative Hands                        </h3>
                                 The text includes the testimony of artist Hayan Abdul Jabbar in remembrance of Ismail Fattah Al-Turk, recalling his relationship with him and with the wider Iraqi artistic community. Hayan speaks of Ismail’s artistic and human qualities, emphasizing his generosity and his supportive relationship with artists and younger generations. The text also refers to a letter Ismail sent to Hayan from Abu Dhabi, reflecting the continued artistic and personal connection between them toward the later period of Ismail’s life.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     07/25/2004                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • &#039;-                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Facial Expressions and Their Implications: Hayan Abdul Jabbar&#039;s Experience as A Model"
                      data-info="Al Ittihad"
                      data-summary="The text examines Hayan Abdul Jabbar’s drawings of faces, highlighting his long-standing engagement with the human face as a central subject of aesthetic and existential inquiry. It focuses on his treatment of the head, eyes, and intersecting lines, using the face as a symbol of the human condition and the traces of conflict, war, and destruction, with the recurring presence of the dove as a significant motif. His works are presented as moving beyond direct representation, inviting the viewer to reconsider their meanings through a visual language that combines aesthetic, expressive, and existential dimensions."
                      data-date="04/26/2006"
+                     data-newspaper="Al Ittihad"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/22.jpg" 
                          alt="Facial Expressions and Their Implications: Hayan Abdul Jabbar&#039;s Experience as A Model" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -609,25 +652,28 @@ a Keen Eye and Creative Hands                        </h3>
                                 The text examines Hayan Abdul Jabbar’s drawings of faces, highlighting his long-standing engagement with the human face as a central subject of aesthetic and existential inquiry. It focuses on his treatment of the head, eyes, and intersecting lines, using the face as a symbol of the human condition and the traces of conflict, war, and destruction, with the recurring presence of the dove as a significant motif. His works are presented as moving beyond direct representation, inviting the viewer to reconsider their meanings through a visual language that combines aesthetic, expressive, and existential dimensions.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     04/26/2006                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Ittihad                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Artist Hayan Abdul Jabbar: There Is No Art without Freedom"
                      data-info="Al Ittihad"
                      data-summary="The text presents an interview with artist Hayan Abdul Jabbar about his artistic practice and his views on Iraqi art. Hayan emphasizes the importance of freedom in artistic creation, continuous experimentation, and avoiding stylistic repetition, describing style as the artist’s personal signature and subject matter as an expression of his intellectual vision of life. He explains that his works develop around specific themes, complemented by recurring symbols such as the dove, bull, face, heart, and head. He also discusses the influence of Ismail Fattah Al-Turk, viewing artistic influence and exchange as a natural part of artistic development rather than a limitation. Hayan ultimately describes art as an essential part of human existence, combining intellectual, aesthetic, and cultural dimensions and forming an integral part of his life and identity."
                      data-date="05/16/2006"
+                     data-newspaper="Al Ittihad"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/23.jpg" 
                          alt="Artist Hayan Abdul Jabbar: There Is No Art without Freedom" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -640,27 +686,30 @@ a Keen Eye and Creative Hands                        </h3>
                                 The text presents an interview with artist Hayan Abdul Jabbar about his artistic practice and his views on Iraqi art. Hayan emphasizes the importance of freedom in artistic creation, continuous experimentation, and avoiding stylistic repetition, describing style as the artist’s personal signature and subject matter as an expression of his intellectual vision of life. He explains that his works develop around specific themes, complemented by recurring symbols such as the dove, bull, face, heart, and head. He also discusses the influence of Ismail Fattah Al-Turk, viewing artistic influence and exchange as a natural part of artistic development rather than a limitation. Hayan ultimately describes art as an essential part of human existence, combining intellectual, aesthetic, and cultural dimensions and forming an integral part of his life and identity.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     05/16/2006                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Ittihad                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Artist Hayan Abdul Jabbar: The Greatness of Artistic Vision Lies in Concealment, Revelation, and What Lies Between."
                      data-info="Al Ittihad"
                      data-summary="The interview explores Hayan Abdul Jabbar’s approach to artistic vision, with the human being at the center of his practice. He explains that the power of an artwork lies in the balance between revelation and concealment, creating space for deeper visual and intellectual interpretation. His work is presented not as limited to a local context, but as an artistic language intended to engage with the human experience more universally.
 
 Hayan also discusses his graphic art practice, which played an important role in developing his artistic vision and technical skills, particularly through the influence of Rafa Al-Nasiri as his graphic art teacher. He describes color as both a dynamic and aesthetic element capable of stimulating the eye and imagination, while recurring motifs such as the head, body, face, dove, and bull form part of his broader exploration of humanity. He further describes modernity as a process of renewal and departure from convention, while drawing selectively from Mesopotamian and wider human heritage."
                      data-date="05/17/2006"
+                     data-newspaper="Al Ittihad"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/24.jpg" 
                          alt="Artist Hayan Abdul Jabbar: The Greatness of Artistic Vision Lies in Concealment, Revelation, and What Lies Between." 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -675,27 +724,30 @@ Hayan also discusses his graphic art practice, which played an important role in
 Hayan also discusses his graphic art practice, which played an important role in developing his artistic vision and technical skills, particularly through the influence of Rafa Al-Nasiri as his graphic art teacher. He describes color as both a dynamic and aesthetic element capable of stimulating the eye and imagination, while recurring motifs such as the head, body, face, dove, and bull form part of his broader exploration of humanity. He further describes modernity as a process of renewal and departure from convention, while drawing selectively from Mesopotamian and wider human heritage.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     05/17/2006                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Ittihad                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Symbolic Significance Between Form and Vision"
                      data-info="Al Muatin"
                      data-summary="The text examines Hayan Abdul Jabbar’s use of symbolism in his drawings and artworks, focusing on the face, head, and human body as central elements of his aesthetic and existential inquiry. His faces are presented as more than representations of human form, carrying meanings related to humanity, conflict, vulnerability, and contemplation, with the recurring symbols of the heart and dove.
 
 The text also highlights Hayan’s use of concealment and revelation, intersecting lines, and complex compositions to move beyond the external appearance of the body toward its inner and spiritual dimensions. His works leave space for the viewer to reconstruct and interpret their meanings, while the text notes the influence of Ismail Fattah Al-Turk’s aesthetic and expressive approach on his artistic practice."
                      data-date="07/04/2006"
+                     data-newspaper="Al Muatin"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/25.jpg" 
                          alt="Symbolic Significance Between Form and Vision" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -710,27 +762,30 @@ The text also highlights Hayan’s use of concealment and revelation, intersecti
 The text also highlights Hayan’s use of concealment and revelation, intersecting lines, and complex compositions to move beyond the external appearance of the body toward its inner and spiritual dimensions. His works leave space for the viewer to reconstruct and interpret their meanings, while the text notes the influence of Ismail Fattah Al-Turk’s aesthetic and expressive approach on his artistic practice.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     07/04/2006                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Muatin                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Implications of Imaginative Structure in The Artistic Image"
                      data-info="Al Zaman"
                      data-summary="The text examines Hayan Abdul Jabbar’s use of the heart, dove, face, and head as recurring symbols within his visual language. It focuses on his representations of faces and bodies as vehicles for expressing the broken, displaced, or contemplative human condition and its broader existential and human meanings.
 
 Rather than simply presenting the external human form, Hayan reconstructs it through lines, intersections, and complex compositions, using concealment, revelation, and symbolism to stimulate the viewer’s imagination and encourage deeper interpretation. The text also highlights the influence of Ismail Fattah Al-Turk on the aesthetic and expressive aspects of Hayan’s practice, while emphasizing Hayan’s individual approach to transforming these influences within his own artistic vision."
                      data-date="07/09/2006"
+                     data-newspaper="Al Zaman"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/26.jpg" 
                          alt="Implications of Imaginative Structure in The Artistic Image" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -745,27 +800,30 @@ Rather than simply presenting the external human form, Hayan reconstructs it thr
 Rather than simply presenting the external human form, Hayan reconstructs it through lines, intersections, and complex compositions, using concealment, revelation, and symbolism to stimulate the viewer’s imagination and encourage deeper interpretation. The text also highlights the influence of Ismail Fattah Al-Turk on the aesthetic and expressive aspects of Hayan’s practice, while emphasizing Hayan’s individual approach to transforming these influences within his own artistic vision.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     07/09/2006                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Zaman                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="I Work According to An Artistic Vision that Balances Concealment and Revelation."
                      data-info="Al Zaman"
                      data-summary="The interview explores Hayan Abdul Jabbar’s approach to constructing an artwork, with the human being identified as the central subject of his practice. He describes artistic vision as a balance between concealment and revelation, allowing the work to suggest meanings rather than presenting them directly and leaving space for reflection and interpretation. The face, body, head, heart, and dove recur as symbolic elements associated with human emotion, conflict, love, and sorrow.
 
 Hayan also discusses his experience with graphic art, which contributed significantly to the development of his technical skills and artistic imagination, and explains how his graphic studies influenced his approach to painting. He emphasizes continuous research and experimentation, considering the cessation of experimentation to be a cessation of artistic development. He further describes color as an aesthetic, intellectual, and dynamic element, and views modernity as a process of renewal and departure from convention while drawing selectively on cultural and historical heritage to develop an artistic vision beyond purely local boundaries."
                      data-date="07/22/2006"
+                     data-newspaper="Al Zaman"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/27.jpg" 
                          alt="I Work According to An Artistic Vision that Balances Concealment and Revelation." 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -780,16 +838,18 @@ Hayan also discusses his experience with graphic art, which contributed signific
 Hayan also discusses his experience with graphic art, which contributed significantly to the development of his technical skills and artistic imagination, and explains how his graphic studies influenced his approach to painting. He emphasizes continuous research and experimentation, considering the cessation of experimentation to be a cessation of artistic development. He further describes color as an aesthetic, intellectual, and dynamic element, and views modernity as a process of renewal and departure from convention while drawing selectively on cultural and historical heritage to develop an artistic vision beyond purely local boundaries.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     07/22/2006                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Zaman                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Artist Hayan Abdul Jabbar: Symbolic Significance Between Form and Vision"
                      data-info="Al Taakhi"
                      data-summary="The text examines Hayan Abdul Jabbar’s treatment of the human form and his use of symbolism, with particular emphasis on the face, head, eyes, and body. Rather than treating the figure as direct representation, Hayan reconstructs it through lines, intersections, and complex compositions, bringing together external appearance with inner and spiritual meanings.
@@ -798,11 +858,12 @@ The heart and dove appear as recurring symbols associated with humanity, emotion
 
 The text also points to the influence of Ismail Fattah Al-Turk’s aesthetic and expressive approach on Hayan’s practice, while emphasizing Hayan’s individual process of reshaping forms and symbols within his own artistic language."
                      data-date="07/31/2006"
+                     data-newspaper="Al Taakhi"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/28.jpg" 
                          alt="Artist Hayan Abdul Jabbar: Symbolic Significance Between Form and Vision" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -819,16 +880,18 @@ The heart and dove appear as recurring symbols associated with humanity, emotion
 The text also points to the influence of Ismail Fattah Al-Turk’s aesthetic and expressive approach on Hayan’s practice, while emphasizing Hayan’s individual process of reshaping forms and symbols within his own artistic language.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     07/31/2006                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Taakhi                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="The Experience of Hayan Abdul Jabbar as A Model
 Facial Sketches"
                      data-info="Alsabah Algadeed"
@@ -838,12 +901,13 @@ The heart, dove, face, and head appear as recurring motifs associated with human
 
 The text also acknowledges the influence of Ismail Fattah Al-Turk on Hayan’s artistic practice, while emphasizing Hayan’s continued research, experimentation, and transformation of influences within his own visual language. He is presented as an important and influential Iraqi artistic experience, with numerous exhibitions and artistic activities in Iraq and abroad."
                      data-date="08/17/2006"
+                     data-newspaper="Alsabah Algadeed"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/29.jpg" 
                          alt="The Experience of Hayan Abdul Jabbar as A Model
 Facial Sketches" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -861,25 +925,28 @@ The heart, dove, face, and head appear as recurring motifs associated with human
 The text also acknowledges the influence of Ismail Fattah Al-Turk on Hayan’s artistic practice, while emphasizing Hayan’s continued research, experimentation, and transformation of influences within his own visual language. He is presented as an important and influential Iraqi artistic experience, with numerous exhibitions and artistic activities in Iraq and abroad.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     08/17/2006                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Alsabah Algadeed                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="The Iraqi Cultural Centre in London Presents: Biennial of The Third World"
                      data-info="Al-Gomhuria"
                      data-summary="The text mentions Hayan Abdul Jabbar among the Iraqi artists participating in the Third World Graphic Art Biennial, alongside several prominent Iraqi graphic artists. His inclusion reflects his presence in Iraq’s participation in international events dedicated to graphic art."
                      data-date="03/29/1980"
+                     data-newspaper="Al-Gomhuria"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/3.jpg" 
                          alt="The Iraqi Cultural Centre in London Presents: Biennial of The Third World" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -892,16 +959,18 @@ The text also acknowledges the influence of Ismail Fattah Al-Turk on Hayan’s a
                                 The text mentions Hayan Abdul Jabbar among the Iraqi artists participating in the Third World Graphic Art Biennial, alongside several prominent Iraqi graphic artists. His inclusion reflects his presence in Iraq’s participation in international events dedicated to graphic art.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     03/29/1980                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al-Gomhuria                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Meanwhile, the Crisis Is Sweeping Through the Iraqi Art Scene."
                      data-info="Al Sabah"
                      data-summary="The text examines Hayan Abdul Jabbar’s artistic practice and his approach to visual art, emphasizing the importance of continuous research and experimentation in developing an artist’s style. Hayan describes style as the artist’s personal signature and argues that repeating the same approach without renewal can bring artistic development to a standstill.
@@ -910,11 +979,12 @@ He explains that his work is built around recurring themes and symbols, includin
 
 The text also notes his exhibitions in Iraq and abroad and his efforts to develop an appropriate artistic direction since the mid-1990s. Hayan discusses the influence of Ismail Fattah Al-Turk, considering artistic influence and exchange a natural part of artistic development while emphasizing that technique alone does not constitute artistic creativity."
                      data-date="09/17/2006"
+                     data-newspaper="Al Sabah"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/30.jpg" 
                          alt="Meanwhile, the Crisis Is Sweeping Through the Iraqi Art Scene." 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -931,16 +1001,18 @@ He explains that his work is built around recurring themes and symbols, includin
 The text also notes his exhibitions in Iraq and abroad and his efforts to develop an appropriate artistic direction since the mid-1990s. Hayan discusses the influence of Ismail Fattah Al-Turk, considering artistic influence and exchange a natural part of artistic development while emphasizing that technique alone does not constitute artistic creativity.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     09/17/2006                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Sabah                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Visual Artist Hayan Jaber:
 Interpretation Is the Realm of The Viewer&#039;s Participation."
                      data-info="Al Sabah"
@@ -948,12 +1020,13 @@ Interpretation Is the Realm of The Viewer&#039;s Participation."
 
 Hayan is described as using familiar subjects and symbols while transforming them within a distinctive visual environment, leaving the viewer considerable space for interpretation and participation in creating meaning. The text also discusses his interest in the clown as a visually and expressively rich subject, alongside his movement through various human themes as part of his continuing search for an individual artistic language."
                      data-date="10/08/2006"
+                     data-newspaper="Al Sabah"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/31.jpg" 
                          alt="Visual Artist Hayan Jaber:
 Interpretation Is the Realm of The Viewer&#039;s Participation." 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -969,16 +1042,18 @@ Interpretation Is the Realm of The Viewer&#039;s Participation.                 
 Hayan is described as using familiar subjects and symbols while transforming them within a distinctive visual environment, leaving the viewer considerable space for interpretation and participation in creating meaning. The text also discusses his interest in the clown as a visually and expressively rich subject, alongside his movement through various human themes as part of his continuing search for an individual artistic language.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     10/08/2006                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Sabah                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Painting Transformations"
                      data-info="Al Sabah"
                      data-summary="The text explores Hayan Abdul Jabbar’s view of the relationship between graphic art and oil painting. He explains that the same subject can be produced through both approaches, with the main differences lying in the methods, materials, and tools of execution, while oil painting allows him to work on a larger scale.
@@ -987,11 +1062,12 @@ Hayan also discusses the importance of periods of pause between artistic stages 
 
 He reflects on the influence of his education at the Institute of Fine Arts and the guidance of several leading artists, particularly Rafa Al-Nasiri, whose teaching instilled in him respect for materials, tools, subject matter, and the fundamentals of artistic practice. The text presents his work in both graphic art and oil painting as part of a long-term process of research and artistic production."
                      data-date="01/25/2009"
+                     data-newspaper="Al Sabah"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/32.jpg" 
                          alt="Painting Transformations" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -1008,16 +1084,18 @@ Hayan also discusses the importance of periods of pause between artistic stages 
 He reflects on the influence of his education at the Institute of Fine Arts and the guidance of several leading artists, particularly Rafa Al-Nasiri, whose teaching instilled in him respect for materials, tools, subject matter, and the fundamentals of artistic practice. The text presents his work in both graphic art and oil painting as part of a long-term process of research and artistic production.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     01/25/2009                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Sabah                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Artist Hayan Abdul Jabbar: There Is No Art without Freedom"
                      data-info="Al Shabaka Al Iraqiya"
                      data-summary="The text presents Hayan Abdul Jabbar’s artistic vision and practice, describing style as the artist’s personal signature and subject matter as an expression of his intellectual and mental understanding of life, experience, and existence. His practice incorporates recurring symbols such as the dove, bull, face, heart, and clown’s head.
@@ -1026,11 +1104,12 @@ Hayan argues that repeating the same artistic approach without continuous experi
 
 The text presents his understanding of art as an intellectual, aesthetic, and human form of expression closely connected to existence. Hayan emphasizes freedom as a fundamental condition for creativity and associates art with beauty, humanity, truth, love, and peace. His experience is presented as an important and influential contribution to contemporary Iraqi visual art."
                      data-date="&#039;-"
+                     data-newspaper="Al Shabaka Al Iraqiya"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/33.jpg" 
                          alt="Artist Hayan Abdul Jabbar: There Is No Art without Freedom" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -1047,16 +1126,18 @@ Hayan argues that repeating the same artistic approach without continuous experi
 The text presents his understanding of art as an intellectual, aesthetic, and human form of expression closely connected to existence. Hayan emphasizes freedom as a fundamental condition for creativity and associates art with beauty, humanity, truth, love, and peace. His experience is presented as an important and influential contribution to contemporary Iraqi visual art.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     &#039;-                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Shabaka Al Iraqiya                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="My Heroes Are Lovers
 and Their Hearts Are Colorful"
                      data-info="Dubai Al-Thaqafiya"
@@ -1066,12 +1147,13 @@ His work is presented within a symbolic-expressionist approach, characterized by
 
 Hayan identifies love as an important theme in his artistic practice and connects his work with lived human experiences. He emphasizes experimentation, artistic dedication, and continuous research as means of avoiding repetition and developing a personal artistic language, while leaving viewers space to interpret the symbols and meanings within his works. The text also notes his participation in numerous exhibitions and his recognition through graphic-art awards."
                      data-date="08/15/2006"
+                     data-newspaper="Dubai Al-Thaqafiya"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/34.jpg" 
                          alt="My Heroes Are Lovers
 and Their Hearts Are Colorful" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -1089,27 +1171,30 @@ His work is presented within a symbolic-expressionist approach, characterized by
 Hayan identifies love as an important theme in his artistic practice and connects his work with lived human experiences. He emphasizes experimentation, artistic dedication, and continuous research as means of avoiding repetition and developing a personal artistic language, while leaving viewers space to interpret the symbols and meanings within his works. The text also notes his participation in numerous exhibitions and his recognition through graphic-art awards.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     08/15/2006                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Dubai Al-Thaqafiya                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Hayan Abdul Jabbar: The Intimacy of Art and The Requirements of Expression"
                      data-info="Al Sabah"
                      data-summary="The text examines Hayan Abdul Jabbar’s expressionist practice, emphasizing his interest in the human condition and human relationships, particularly the relationship between man and woman. His works feature dynamic compositions and transformed forms, including distortions of faces and hands that convey states of resistance, liberation, and human anxiety.
 
 The text also emphasizes that Hayan’s works invite contemplation and interpretation rather than relying solely on formal and aesthetic qualities. His artistic approach connects visual expression with emotional, social, and human experience, reflecting his pursuit of a distinctive artistic vision centered on humanity and its changing circumstances."
                      data-date="04/14/2024"
+                     data-newspaper="Al Sabah"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/35.png" 
                          alt="Hayan Abdul Jabbar: The Intimacy of Art and The Requirements of Expression" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -1124,27 +1209,30 @@ The text also emphasizes that Hayan’s works invite contemplation and interpret
 The text also emphasizes that Hayan’s works invite contemplation and interpretation rather than relying solely on formal and aesthetic qualities. His artistic approach connects visual expression with emotional, social, and human experience, reflecting his pursuit of a distinctive artistic vision centered on humanity and its changing circumstances.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     04/14/2024                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Sabah                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Hayan Abdul Jabbar: Clarity of Artistic Vision and Beauty of Expression"
                      data-info="Al Sabah"
                      data-summary="The text examines the expressionist vision in Hayan Abdul Jabbar’s work, placing the human being at its center through recurring motifs of the body and dove, as well as the man, woman, heart, and face. He uses figurative compositions, symbols, and semiotic references to address human and psychological states associated with alienation, loss, and peace.
 
 The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing Hayan’s ability to transform this influence into an individual artistic approach that reinforces his own visual identity. His work is also characterized by technical control of artistic media and by an approach that engages both the viewer’s intellect and emotions, leaving room for contemplation and interpretation."
                      data-date="08/29/2022"
+                     data-newspaper="Al Sabah"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/36.PNG" 
                          alt="Hayan Abdul Jabbar: Clarity of Artistic Vision and Beauty of Expression" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -1159,25 +1247,28 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
 The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing Hayan’s ability to transform this influence into an individual artistic approach that reinforces his own visual identity. His work is also characterized by technical control of artistic media and by an approach that engages both the viewer’s intellect and emotions, leaving room for contemplation and interpretation.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     08/29/2022                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Sabah                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="A Chromatic Space... Embarking on Beauty"
                      data-info="Al Sabah"
                      data-summary="The text mentions Hayan Abdul Jabbar among the artists participating in the “Color Space” exhibition, placing his painting practice within a group of experiences characterized by stylistic development and experimentation with materials and thematic structures. His work is presented as part of a broader movement seeking to develop individual visual languages and distinctive aesthetic visions."
                      data-date="08/17/2026"
+                     data-newspaper="Al Sabah"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/37.jpg" 
                          alt="A Chromatic Space... Embarking on Beauty" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -1190,25 +1281,28 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                                 The text mentions Hayan Abdul Jabbar among the artists participating in the “Color Space” exhibition, placing his painting practice within a group of experiences characterized by stylistic development and experimentation with materials and thematic structures. His work is presented as part of a broader movement seeking to develop individual visual languages and distinctive aesthetic visions.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     08/17/2026                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Sabah                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Artist Salem Al-Dabbagh: Our Generation Presented the Most Important Components of The Cultural Revolution."
                      data-info="Al Shabaka Al Iraqiya"
                      data-summary="The text mentions Hayan Abdul Jabbar among the graduates of the Graphic Arts Department at the Institute of Fine Arts, in the context of a discussion on the generation that contributed to the development of Iraqi abstract and visual art. It highlights the importance of the department in producing artists who became part of the Iraqi visual-art scene, including Hayan Abdul Jabbar."
                      data-date="01/28/2020"
+                     data-newspaper="Al Shabaka Al Iraqiya"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/38.jpg" 
                          alt="Artist Salem Al-Dabbagh: Our Generation Presented the Most Important Components of The Cultural Revolution." 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -1221,25 +1315,28 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                                 The text mentions Hayan Abdul Jabbar among the graduates of the Graphic Arts Department at the Institute of Fine Arts, in the context of a discussion on the generation that contributed to the development of Iraqi abstract and visual art. It highlights the importance of the department in producing artists who became part of the Iraqi visual-art scene, including Hayan Abdul Jabbar.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     01/28/2020                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Shabaka Al Iraqiya                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="A Global Art Exhibition in Baghdad"
                      data-info="Qadisiyah Saddam"
                      data-summary="The text mentions Hayan Abdul Jabbar among the Iraqi artists participating in the Third World Graphic Art Exhibition, alongside a number of Iraqi graphic artists. His inclusion reflects his participation in Iraq’s representation at this international graphic art event."
                      data-date="09/09/1982"
+                     data-newspaper="Qadisiyah Saddam"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/4.jpg" 
                          alt="A Global Art Exhibition in Baghdad" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -1252,25 +1349,28 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                                 The text mentions Hayan Abdul Jabbar among the Iraqi artists participating in the Third World Graphic Art Exhibition, alongside a number of Iraqi graphic artists. His inclusion reflects his participation in Iraq’s representation at this international graphic art event.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     09/09/1982                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Qadisiyah Saddam                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="A New Art Exhibition Is Being Held in The Professional Gallery"
                      data-info="Euyun Al Madina"
                      data-summary="The text announces Hayan Abdul Jabbar’s solo exhibition at Al-Mohtaraf Gallery in Mansour, featuring a large collection of paintings and graphic artworks."
                      data-date="1990/4"
+                     data-newspaper="Euyun Al Madina"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/5.jpg" 
                          alt="A New Art Exhibition Is Being Held in The Professional Gallery" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -1283,25 +1383,28 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                                 The text announces Hayan Abdul Jabbar’s solo exhibition at Al-Mohtaraf Gallery in Mansour, featuring a large collection of paintings and graphic artworks.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     1990/4                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Euyun Al Madina                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="&#039;-"
                      data-info="&#039;-"
                      data-summary="The text announces Hayan Abdul Jabbar’s solo exhibition at Al-Orfali Gallery in Mansour, featuring works in graphic art and painting."
                      data-date="1990/4"
+                     data-newspaper="&#039;-"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/6.jpg" 
                          alt="&#039;-" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -1314,25 +1417,28 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                                 The text announces Hayan Abdul Jabbar’s solo exhibition at Al-Orfali Gallery in Mansour, featuring works in graphic art and painting.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     1990/4                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • &#039;-                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Basic Performance Material"
                      data-info="Al Qadisiya"
                      data-summary="The text examines Hayan Abdul Jabbar’s graphic art practice, highlighting his reduction of the human figure—particularly the head—and his repeated development of it through varied forms as a means of exploring character, spirit, and the human condition. It emphasizes the clarity of his symbols and his effort to establish a connection with the viewer, while combining Iraqi graphic art achievements with international approaches. The result is described as a distinctive style that brings together modernity and local artistic identity, forming the basis of his forthcoming solo exhibition."
                      data-date="03/19/1990"
+                     data-newspaper="Al Qadisiya"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/7.jpg" 
                          alt="Basic Performance Material" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -1345,25 +1451,28 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                                 The text examines Hayan Abdul Jabbar’s graphic art practice, highlighting his reduction of the human figure—particularly the head—and his repeated development of it through varied forms as a means of exploring character, spirit, and the human condition. It emphasizes the clarity of his symbols and his effort to establish a connection with the viewer, while combining Iraqi graphic art achievements with international approaches. The result is described as a distinctive style that brings together modernity and local artistic identity, forming the basis of his forthcoming solo exhibition.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     03/19/1990                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Qadisiya                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Drawing on Paper and Graphic Design Is More Difficult, and The Colors Are More Beautiful"
                      data-info="Al-Gomhuria"
                      data-summary="The text discusses Hayan Abdul Jabbar’s first exhibition, praising his use of color as a central element in the composition and as a means of engaging the viewer. It also highlights the influence of Rafa Al-Nasiri’s techniques while emphasizing Hayan’s potential to develop his own distinctive artistic style. The human head is identified as the central motif in his work, explored through various forms to express his ideas and impressions of life and people. The text also emphasizes his commitment to graphic art as a more demanding medium requiring continued experimentation and research."
                      data-date="04/19/1990"
+                     data-newspaper="Al-Gomhuria"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/8.jpg" 
                          alt="Drawing on Paper and Graphic Design Is More Difficult, and The Colors Are More Beautiful" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -1376,25 +1485,28 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                                 The text discusses Hayan Abdul Jabbar’s first exhibition, praising his use of color as a central element in the composition and as a means of engaging the viewer. It also highlights the influence of Rafa Al-Nasiri’s techniques while emphasizing Hayan’s potential to develop his own distinctive artistic style. The human head is identified as the central motif in his work, explored through various forms to express his ideas and impressions of life and people. The text also emphasizes his commitment to graphic art as a more demanding medium requiring continued experimentation and research.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     04/19/1990                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al-Gomhuria                                </span>
                                                     </div>
 
                     </div>
                 </div>
-                            <div class="gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
+                            <div class="gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-gray-200 show-item shadow-sm hover:shadow-xl cursor-pointer lightbox-trigger" 
                      data-title="Between Movement and Stillness"
                      data-info="Al Qadisiya"
                      data-summary="The text examines Hayan Abdul Jabbar’s artistic development between movement and stillness, focusing on his reduction of the human figure into parts—particularly the legs and later the head—to express human conditions and reflections on existence. It connects his work to his military service experience, which influenced both his oil paintings and zinc-plate engravings. The text praises the maturity, sincerity, and expressive vitality of his work, viewing his first exhibition as the beginning of a promising artistic path toward a more complete and distinctive style."
                      data-date="04/23/1990"
+                     data-newspaper="Al Qadisiya"
                                                                >
                     
                     <img src="hayan%20C-V%20%26%20press/press/9.jpg" 
                          alt="Between Movement and Stillness" 
-                         class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md"
+                         class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md"
                          onload="this.classList.remove('blur-md')"
                          loading="lazy">
                     
@@ -1407,11 +1519,13 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                                 The text examines Hayan Abdul Jabbar’s artistic development between movement and stillness, focusing on his reduction of the human figure into parts—particularly the legs and later the head—to express human conditions and reflections on existence. It connects his work to his military service experience, which influenced both his oil paintings and zinc-plate engravings. The text praises the maturity, sincerity, and expressive vitality of his work, viewing his first exhibition as the beginning of a promising artistic path toward a more complete and distinctive style.                            </p>
                         
                         <div class="mt-4 flex flex-row items-center gap-4 transition-transform duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm">
+                            <span class="inline-block px-5 py-2 bg-[#D8D5CD] text-black text-xs font-bold uppercase tracking-wider rounded-sm shadow-sm shrink-0">
                                 Read Now
                             </span>
-                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide">
+                                                            <span class="text-gray-100 text-sm font-sans font-semibold drop-shadow-sm tracking-wide shrink-0">
                                     04/23/1990                                </span>
+                                                                                        <span class="text-gray-200 text-sm font-sans font-medium drop-shadow-sm tracking-wide line-clamp-1">
+                                    • Al Qadisiya                                </span>
                                                     </div>
 
                     </div>
@@ -1434,6 +1548,7 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                 <h2 class="text-lg md:text-xl font-serif text-black mb-4 font-bold flex flex-wrap items-baseline gap-3">
                     <span id="lightbox-title">Artwork Title</span>
                     <span id="lightbox-date" class="text-gray-600 font-light text-base"></span>
+                    <span id="lightbox-newspaper" class="text-gray-600 font-medium text-base ml-1"></span>
                 </h2>
                 
                 <hr class="border-t border-black w-full mb-6">
@@ -1533,6 +1648,7 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                 const rawDesc = trigger.getAttribute('data-info');
                 const rawSummary = trigger.getAttribute('data-summary');
                 const date = trigger.getAttribute('data-date');
+                const newspaper = trigger.getAttribute('data-newspaper');
                 
                 const coverImgEl = document.getElementById('book-header-cover');
                 coverImgEl.classList.add('blur-md');
@@ -1556,6 +1672,12 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                 } else {
                     document.getElementById('book-header-year').textContent = '';
                 }
+
+                if (newspaper) {
+                    document.getElementById('book-header-newspaper').textContent = (date ? '• ' : '') + newspaper;
+                } else {
+                    document.getElementById('book-header-newspaper').textContent = '';
+                }
                 
                 let combinedHtml = '';
                 if (parsedSummary) combinedHtml += `<p class="text-xl md:text-2xl text-black mb-4 leading-relaxed">${parsedSummary}</p>`;
@@ -1576,14 +1698,15 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                         const images = JSON.parse(imagesRaw);
                         images.forEach((imgUrl, i) => {
                             const pageDiv = document.createElement('div');
-                            pageDiv.className = 'temp-book-page lightbox-trigger cursor-pointer gallery-item group relative h-[250px] md:h-[350px] flex-none overflow-hidden rounded-md bg-[#D8D5CD] show-item shadow-sm hover:shadow-xl';
+                            // Apply aspect-[2.5/2] to dynamically created pages as well
+                            pageDiv.className = 'temp-book-page lightbox-trigger cursor-pointer gallery-item group relative h-[250px] md:h-[350px] aspect-[2.5/2] flex-none overflow-hidden rounded-md bg-[#D8D5CD] show-item shadow-sm hover:shadow-xl';
                             const labelText = i === 0 ? 'Cover' : 'Page ' + i;
 
                             pageDiv.setAttribute('data-title', title + ' - ' + labelText);
                             pageDiv.setAttribute('data-info', '');
 
                             pageDiv.innerHTML = `
-                                <img src="${imgUrl}" alt="${labelText}" class="h-full w-auto block transition-all duration-700 group-hover:scale-105 blur-md" onload="this.classList.remove('blur-md')" loading="lazy">
+                                <img src="${imgUrl}" alt="${labelText}" class="h-full w-full object-cover block transition-all duration-700 group-hover:scale-105 blur-md" onload="this.classList.remove('blur-md')" loading="lazy">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                     <span class="text-white text-lg font-serif font-bold">${labelText}</span>
                                 </div>
@@ -1595,7 +1718,7 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                 
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 const cleanTitle = title.toLowerCase().replace(/\s+/g, '-');
-                window.history.replaceState(null, null, `/press/view-${cleanTitle}`);
+                window.history.replaceState(null, null, '/press/view-' + cleanTitle);
             }
 
             closeBookViewBtn.addEventListener('click', () => {
@@ -1603,7 +1726,7 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                 document.querySelectorAll('.temp-book-page').forEach(el => el.remove());
                 bookViewHeader.classList.remove('flex');
                 bookViewHeader.classList.add('hidden');
-                window.history.replaceState(null, null, `/press`);
+                window.history.replaceState(null, null, '/press'); 
                 
                 galleryItems.forEach(item => {
                     item.classList.remove('hidden-item');
@@ -1640,11 +1763,18 @@ The text notes the influence of artist Ismail Fattah Al-Turk while emphasizing H
                 const rawDesc = item.getAttribute('data-info') || '';
                 const rawSummary = item.getAttribute('data-summary') || '';
                 const date = item.getAttribute('data-date') || '';
+                const newspaper = item.getAttribute('data-newspaper') || '';
 
                 if (date) {
                     document.getElementById('lightbox-date').textContent = date;
                 } else {
                     document.getElementById('lightbox-date').textContent = '';
+                }
+
+                if (newspaper) {
+                    document.getElementById('lightbox-newspaper').textContent = (date ? '• ' : '') + newspaper;
+                } else {
+                    document.getElementById('lightbox-newspaper').textContent = '';
                 }
                 
                 let combinedHtml = '';
