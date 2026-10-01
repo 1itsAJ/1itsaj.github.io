@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Loading...</title>
+    <script>
+        // 1. Save the path they were trying to go to (e.g., /painting/all-eras)
+        sessionStorage.setItem('ghp_redirect', window.location.pathname + window.location.hash);
+
+        // 2. Check if they were trying to access a Press sub-page
+        if (window.location.pathname.startsWith('/press')) {
+            window.location.replace('/press.html');
+        } else {
+            // 3. Otherwise, send them to the main gallery page
+            window.location.replace('/');
+        }
+    </script>
+</head>
+<body style="background-color: #D8D5CD;">
+</body>
+</html>
