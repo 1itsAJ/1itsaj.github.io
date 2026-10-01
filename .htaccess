@@ -1,16 +1,17 @@
 RewriteEngine On
+RewriteBase /
 
-# 1. Route /press and its sub-paths to press.html
+# 1. Route /press and its sub-paths to press.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^press(/.*)?$ press.html [QSA,L]
+RewriteRule ^press(/.*)?$ press.php [QSA,L]
 
 # 2. Route /cv to cv.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^cv$ cv.html [QSA,L]
 
-# 3. Route everything else (gallery paths) to index.html
+# 3. Route everything else (gallery paths) to index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.html [QSA,L]
+RewriteRule ^(.*)$ index.php [QSA,L]

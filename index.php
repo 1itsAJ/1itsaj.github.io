@@ -161,7 +161,8 @@ function getGalleryItems() {
 
                     $relativePath = substr($path, strlen($baseDir) + 1);
                     $webUrl = str_replace('\\', '/', $relativePath);
-                    $encodedUrl = implode('/', array_map('rawurlencode', explode('/', $webUrl)));
+                    // FIXED: Added '/' to the start of the URL so the browser always finds the image!
+                    $encodedUrl = '/' . implode('/', array_map('rawurlencode', explode('/', $webUrl)));
 
                     $items[] = [
                         'url' => $encodedUrl,
@@ -232,7 +233,8 @@ function getGalleryItems() {
             foreach ($images as $index => $path) {
                 $relativePath = substr($path, strlen($baseDir) + 1);
                 $webUrl = str_replace('\\', '/', $relativePath);
-                $encodedUrl = implode('/', array_map('rawurlencode', explode('/', $webUrl)));
+                // FIXED: Added '/' to the start of the URL
+                $encodedUrl = '/' . implode('/', array_map('rawurlencode', explode('/', $webUrl)));
                 $pages[] = $encodedUrl;
                 if (strpos(strtolower(basename($path)), 'cover.') === 0) {
                     $coverIndex = $index;
@@ -321,7 +323,8 @@ function getGalleryItems() {
             foreach ($images as $index => $path) {
                 $relativePath = substr($path, strlen($baseDir) + 1);
                 $webUrl = str_replace('\\', '/', $relativePath);
-                $encodedUrl = implode('/', array_map('rawurlencode', explode('/', $webUrl)));
+                // FIXED: Added '/' to the start of the URL
+                $encodedUrl = '/' . implode('/', array_map('rawurlencode', explode('/', $webUrl)));
                 $pages[] = $encodedUrl;
                 
                 if (strpos(strtolower(basename($path)), 'cover.') === 0) {
@@ -366,6 +369,7 @@ $galleryItems = getGalleryItems();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hayan Art | Artist Portfolio</title>
+    
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -452,7 +456,8 @@ $galleryItems = getGalleryItems();
 
     <section id="home" class="pt-20 w-full min-h-[90vh] flex flex-col md:flex-row bg-brand">
         <div class="w-full md:w-1/2 relative min-h-[50vh] md:min-h-full">
-            <img src="1970/Painting/doleful man.jpg" onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=1200&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover object-top" alt="Hayan Art Painting">
+            <!-- FIXED: Leading slash on the hero image -->
+            <img src="/1970/Painting/doleful man.jpg" onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=1200&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover object-top" alt="Hayan Art Painting">
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
             
             <div class="absolute bottom-8 left-8 md:bottom-16 md:left-12 text-white">
@@ -625,7 +630,6 @@ $galleryItems = getGalleryItems();
                     <div class="flex flex-col gap-1.5 mb-6 sm:mb-0">
                         <a href="/#home" class="hover:opacity-70 hover:underline transition-all">Home</a>
                         <a href="/cv" class="hover:opacity-70 hover:underline transition-all">About</a>
-                        <a href="mailto:hello@hayan.art" class="hover:opacity-70 hover:underline transition-all">Contact</a>
                     </div>
                     <div class="flex flex-col gap-1.5 mb-6 sm:mb-0">
                         <a href="https://www.facebook.com/hayan.abduljabbar" class="hover:opacity-70 hover:underline transition-all" target="_blank">Facebook</a>

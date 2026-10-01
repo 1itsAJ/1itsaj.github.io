@@ -255,7 +255,7 @@ $galleryItems = getPressItems();
                     <a href="/" class="text-2xl font-serif font-semibold tracking-wide">Hayan Art</a>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="/#home" class="text-black hover:opacity-70 transition-opacity font-medium">Home</a>
+                    <a href="/" class="text-black hover:opacity-70 transition-opacity font-medium">Home</a>
                     
                     <div class="relative group">
                         <a href="/#portfolio" class="text-black hover:opacity-70 transition-opacity font-medium flex items-center gap-1 focus:outline-none">
@@ -449,7 +449,7 @@ $galleryItems = getPressItems();
 
                 <div class="w-full md:w-2/3 flex flex-col sm:flex-row justify-between md:justify-end md:gap-24 font-sans text-[15px] leading-relaxed">
                     <div class="flex flex-col gap-1.5 mb-6 sm:mb-0">
-                        <a href="/#home" class="hover:opacity-70 hover:underline transition-all">Home</a>
+                        <a href="/" class="hover:opacity-70 hover:underline transition-all">Home</a>
                         <a href="/cv" class="hover:opacity-70 hover:underline transition-all">About</a>
                     </div>
                     <div class="flex flex-col gap-1.5 mb-6 sm:mb-0">
