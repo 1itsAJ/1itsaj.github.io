@@ -369,6 +369,16 @@ $galleryItems = getGalleryItems();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hayan Art | Artist Portfolio</title>
+    <script>
+        // GitHub Pages Clean URL Restorer
+        (function() {
+            let redirect = sessionStorage.getItem('ghp_redirect');
+            if (redirect) {
+                sessionStorage.removeItem('ghp_redirect');
+                window.history.replaceState(null, null, redirect);
+            }
+        })();
+    </script>
     
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
